@@ -91,7 +91,7 @@ async function encodeWebp(ext, bytes) {
   return img.webp({ quality: 85 }).toBuffer();
 }
 
-export async function registerVersion({ buffer, sourceName, id, title, version, note = '', overwrite = false }) {
+export async function registerVersion({ buffer, sourceName, id, title, version, note = '', overwrite = false, mergedFrom = null }) {
   checkHwpx(buffer);
   if (!ID_RE.test(id)) throw new Error('문서 ID는 영문 소문자·숫자·하이픈만 사용할 수 있습니다.');
   if (!VER_RE.test(version)) throw new Error('버전은 영문·숫자·점·하이픈·밑줄만 사용할 수 있습니다.');
@@ -119,7 +119,7 @@ export async function registerVersion({ buffer, sourceName, id, title, version, 
     fs.writeFileSync(path.join(tmpDir, 'source.hwpx'), buffer);
     const convertedAt = new Date().toISOString();
     const hash = sha256(buffer);
-    fs.writeFileSync(path.join(tmpDir, 'meta.json'), JSON.stringify({ id, version, note, sourceName, sourceBytes: buffer.length, sha256: hash, convertedAt, stats, warnings, imageBytesBefore: before, imageBytesAfter: after }, null, 1), 'utf8');
+    fs.writeFileSync(path.join(tmpDir, 'meta.json'), JSON.stringify({ id, version, note, sourceName, sourceBytes: buffer.length, sha256: hash, convertedAt, stats, warnings, imageBytesBefore: before, imageBytesAfter: after, ...(mergedFrom ? { mergedFrom } : {}) }, null, 1), 'utf8');
 
     fs.rmSync(finalDir, { recursive: true, force: true });
     fs.renameSync(tmpDir, finalDir);
@@ -131,7 +131,7 @@ export async function registerVersion({ buffer, sourceName, id, title, version, 
       if (!m.nameKey) m.nameKey = nameKey(sourceName);
     }
     m.versions = m.versions.filter((v) => v.version !== version);
-    m.versions.push({ version, date: convertedAt, note, sha256: hash, sourceName, sourceBytes: buffer.length, headings: stats.headings, tables: stats.tables, images: stats.images });
+    m.versions.push({ version, date: convertedAt, note, sha256: hash, sourceName, sourceBytes: buffer.length, headings: stats.headings, tables: stats.tables, images: stats.images, ...(mergedFrom ? { mergedFrom } : {}) });
     m.versions.sort((a, b) => b.date.localeCompare(a.date));
     m.latest = m.versions[0].version;
     writeManifest(manifest);

@@ -27,6 +27,18 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 .msg.ok{color:var(--ok)}.msg.er{color:var(--er)}.msg.warn{color:var(--er);background:transparent;border:1px solid var(--er)}
 table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--l)}th{color:var(--m)}
 small{color:var(--m)}
+.pickrow{display:grid;grid-template-columns:1fr 140px auto;gap:8px;align-items:end}@media(max-width:600px){.pickrow{grid-template-columns:1fr 1fr}}
+.pickrow .btn{margin:0}
+.order{list-style:none;margin:12px 0 0;padding:0;border:1px solid var(--l);border-radius:8px;counter-reset:n}
+.order li{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--l);background:var(--s);counter-increment:n}
+.order li:last-child{border-bottom:0}
+.order li::before{content:counter(n) ".";color:var(--m);min-width:22px;text-align:right}
+.order li.drag{opacity:.4}.order li.over{box-shadow:inset 0 2px 0 var(--b)}
+.order .grip{cursor:grab;color:var(--m);user-select:none;padding:0 2px}
+.order .t{flex:1;min-width:0}
+.order .t select{width:auto;padding:2px 6px;margin-left:6px}
+.order .btn.sec{padding:2px 8px}
+.empty{color:var(--m);padding:12px;text-align:center}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -60,6 +72,31 @@ small{color:var(--m)}
     <div class="msg" id="result" hidden></div>
   </div>
 
+  <div class="card" id="mergeCard">
+    <h2>문서 병합</h2>
+    <p class="sub" style="margin:0">등록된 문서를 골라 원하는 순서로 하나의 HWPX로 합치고, 사이트에 새 문서로 등록합니다. 각 문서는 새 쪽에서 시작합니다.</p>
+    <div class="pickrow">
+      <div><label for="mPick">문서</label><select id="mPick"></select></div>
+      <div><label for="mPickVer">버전</label><select id="mPickVer"></select></div>
+      <button class="btn" id="mAdd" type="button">추가</button>
+    </div>
+    <ol class="order" id="mOrder" aria-label="병합 순서 (끌어서 순서 변경)"></ol>
+    <small>≡ 를 끌거나 ▲▼ 버튼으로 순서를 바꿀 수 있습니다. 같은 문서를 여러 번 넣을 수도 있습니다.</small>
+    <div class="row">
+      <div><label for="mTarget">등록할 곳</label><select id="mTarget"></select></div>
+      <div><label for="mVersion">버전</label><input id="mVersion" maxlength="30" value="1.0"></div>
+    </div>
+    <div class="row" id="mNewBox">
+      <div><label for="mId">새 문서 ID (영문 소문자·숫자·-)</label><input id="mId" maxlength="40" placeholder="예: user-guide-all"></div>
+      <div><label for="mTitle">문서 제목 (다운로드 파일 이름)</label><input id="mTitle" maxlength="100" placeholder="예: SILKROAD 사용자 메뉴얼 통합본"></div>
+    </div>
+    <label for="mNote">변경 내용</label>
+    <textarea id="mNote" rows="2" maxlength="500" placeholder="비워 두면 병합한 문서 목록이 들어갑니다"></textarea>
+    <label><input type="checkbox" id="mOverwrite" style="width:auto"> 같은 버전이 있으면 덮어쓰기</label>
+    <button class="btn" id="mGo" type="button">병합하고 등록</button>
+    <div class="msg" id="mResult" hidden></div>
+  </div>
+
   <div class="card">
     <h2>등록된 문서</h2>
     <div id="list"></div>
@@ -79,6 +116,7 @@ async function refresh(){
   for(const m of manuals){const o=document.createElement('option');o.value=m.id;o.textContent=`${m.title} (${m.id})`;sel.append(o);}
   const n=document.createElement('option');n.value='__new';n.textContent='+ 새 문서 추가';sel.append(n);
   onManual();
+  fillPick();
   const list=$('list');list.textContent='';
   if(!manuals.length){list.textContent='등록된 문서가 없습니다.';return;}
   for(const m of manuals){
@@ -151,6 +189,75 @@ $('go').onclick=async()=>{
   }catch(e){show($('result'),'er',e.message);}
   $('go').disabled=false;
 };
+// ---------- 문서 병합 ----------
+let order=[]; // [{id, version}]
+const mById=(id)=>manuals.find((m)=>m.id===id);
+function fillPick(){
+  const sel=$('mPick'),prev=sel.value;sel.textContent='';
+  for(const m of manuals){const o=document.createElement('option');o.value=m.id;o.textContent=`${m.title} (${m.id})`;sel.append(o);}
+  if(mById(prev))sel.value=prev;
+  fillPickVer();
+  const t=$('mTarget'),pt=t.value;t.textContent='';
+  const n=document.createElement('option');n.value='__new';n.textContent='+ 새 문서로 등록';t.append(n);
+  for(const m of manuals.filter((x)=>x.versions.some((v)=>v.mergedFrom))){const o=document.createElement('option');o.value=m.id;o.textContent=`${m.title} (${m.id})의 새 버전`;t.append(o);}
+  if([...t.options].some((o)=>o.value===pt))t.value=pt;
+  onTarget();
+  order=order.filter((it)=>mById(it.id)?.versions.some((v)=>v.version===it.version));
+  renderOrder();
+}
+function verOptions(sel,m,cur){
+  sel.textContent='';
+  for(const v of m.versions){const o=document.createElement('option');o.value=v.version;o.textContent=`v${v.version}${v.version===m.latest?' (최신)':''}`;sel.append(o);}
+  sel.value=cur??m.latest;
+}
+function fillPickVer(){const m=mById($('mPick').value);if(m)verOptions($('mPickVer'),m);}
+$('mPick').onchange=fillPickVer;
+$('mAdd').onclick=()=>{const id=$('mPick').value,version=$('mPickVer').value;if(!id||!version)return;order.push({id,version});renderOrder();};
+async function onTarget(){
+  const id=$('mTarget').value;
+  $('mNewBox').hidden=id!=='__new';
+  if(id!=='__new'){const s=await api('/api/suggest?id='+encodeURIComponent(id));$('mVersion').value=s.version;$('mTitle').value=s.title;}
+  else{$('mVersion').value='1.0';}
+}
+$('mTarget').onchange=onTarget;
+let dragFrom=null;
+function move(i,j){if(j<0||j>=order.length)return;const [x]=order.splice(i,1);order.splice(j,0,x);renderOrder();}
+function renderOrder(){
+  const ol=$('mOrder');ol.textContent='';
+  if(!order.length){const li=document.createElement('div');li.className='empty';li.textContent='위에서 문서를 골라 [추가]를 누르세요.';ol.append(li);return;}
+  order.forEach((it,i)=>{
+    const m=mById(it.id);
+    const li=document.createElement('li');li.draggable=true;
+    const g=document.createElement('span');g.className='grip';g.textContent='≡';g.title='끌어서 순서 변경';g.setAttribute('aria-hidden','true');
+    const t=document.createElement('span');t.className='t';t.textContent=m.title;
+    const vs=document.createElement('select');vs.setAttribute('aria-label',`${m.title} 버전`);verOptions(vs,m,it.version);vs.onchange=()=>{it.version=vs.value;};t.append(vs);
+    const mk=(txt,label,fn,dis)=>{const b=document.createElement('button');b.type='button';b.className='btn sec';b.textContent=txt;b.setAttribute('aria-label',`${m.title} ${label}`);b.disabled=!!dis;b.onclick=fn;return b;};
+    li.append(g,t,mk('▲','위로',()=>move(i,i-1),i===0),mk('▼','아래로',()=>move(i,i+1),i===order.length-1),mk('✕','빼기',()=>{order.splice(i,1);renderOrder();}));
+    li.ondragstart=(e)=>{dragFrom=i;li.classList.add('drag');e.dataTransfer.effectAllowed='move';};
+    li.ondragend=()=>{li.classList.remove('drag');};
+    li.ondragover=(e)=>{e.preventDefault();li.classList.add('over');};
+    li.ondragleave=()=>li.classList.remove('over');
+    li.ondrop=(e)=>{e.preventDefault();li.classList.remove('over');if(dragFrom!==null&&dragFrom!==i)move(dragFrom,i);dragFrom=null;};
+    ol.append(li);
+  });
+}
+$('mGo').onclick=async()=>{
+  if(order.length<2){show($('mResult'),'er','병합할 문서를 2개 이상 추가하세요.');return;}
+  const isNew=$('mTarget').value==='__new';
+  const title=$('mTitle').value.trim();
+  const note=$('mNote').value.trim()||('병합: '+order.map((it)=>`${mById(it.id).title} v${it.version}`).join(' + ')).slice(0,500);
+  const body={items:order,id:isNew?$('mId').value.trim():$('mTarget').value,title,version:$('mVersion').value.trim(),note,overwrite:$('mOverwrite').checked};
+  $('mGo').disabled=true;show($('mResult'),'',`${order.length}개 문서를 병합하고 변환하는 중입니다… (큰 문서는 1분 이상 걸릴 수 있습니다)`);
+  try{
+    const r=await api('/api/merge',{method:'POST',body:JSON.stringify(body)});
+    show($('mResult'),'ok',`등록 완료: ${r.id} v${r.version} (${mb(r.bytes)}) — 제목 ${r.stats.headings}, 표 ${r.stats.tables}, 그림 ${r.stats.images}${r.stats.missingImages?` (누락 ${r.stats.missingImages})`:''}. 열람 화면의 [원본(HWPX) 다운로드]로 받을 수 있습니다.`);
+    const a=document.createElement('a');a.href=`http://127.0.0.1:5173/viewer.html?m=${r.id}&v=${encodeURIComponent(r.version)}`;a.target='_blank';a.textContent=' 열람 화면 열기';$('mResult').append(a);
+    $('mNote').value='';
+    await refresh();
+  }catch(e){show($('mResult'),'er',e.message);}
+  $('mGo').disabled=false;
+};
+
 refresh().catch((e)=>{$('list').textContent=e.message;});
 </script>
 </body>

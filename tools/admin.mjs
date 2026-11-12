@@ -5,7 +5,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { registerVersion, deleteVersion, readManifest, checkHwpx, sha256, suggestVersion, findManualByFile, slugOf, nameStem, MAX_BYTES } from './register.mjs';
+import { registerVersion, deleteVersion, readManifest, checkHwpx, sha256, suggestVersion, findManualByFile, slugOf, nameStem, MAX_BYTES, siteDir, ID_RE, VER_RE } from './register.mjs';
+import { mergeHwpx } from './merge.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.argv[2]) || 5174;
@@ -83,6 +84,41 @@ http
         });
         uploads.delete(body.token);
         return send(res, 200, r);
+      }
+
+      // 문서 병합: 선택한 문서·버전을 순서대로 합쳐 새 문서(또는 기존 병합 문서의 새 버전)로 등록
+      if (req.method === 'POST' && url.pathname === '/api/merge') {
+        const body = JSON.parse((await readBody(req, 1e5)).toString('utf8'));
+        const items = Array.isArray(body.items) ? body.items : [];
+        if (items.length < 2) throw new Error('병합할 문서를 2개 이상 선택하세요.');
+        if (items.length > 50) throw new Error('한 번에 50개까지 병합할 수 있습니다.');
+        const manifest = readManifest();
+        const docs = [];
+        const mergedFrom = [];
+        for (const it of items) {
+          const id = String(it?.id ?? ''), version = String(it?.version ?? '');
+          if (!ID_RE.test(id) || !VER_RE.test(version)) throw new Error('잘못된 문서 선택입니다.');
+          const m = manifest.manuals.find((x) => x.id === id);
+          const v = m?.versions.find((x) => x.version === version);
+          if (!v) throw new Error(`존재하지 않는 문서·버전입니다: ${id} v${version}`);
+          docs.push({ name: `${m.title} v${version}`, buffer: fs.readFileSync(path.join(siteDir, 'm', id, version, 'source.hwpx')) });
+          mergedFrom.push({ id, version, title: m.title });
+        }
+        const title = String(body.title ?? '').trim().slice(0, 100);
+        if (!title) throw new Error('병합 문서 제목을 입력하세요.');
+        const buffer = mergeHwpx(docs, { title });
+        // 다운로드 파일 이름: 제목에서 파일명에 쓸 수 없는 문자 제거
+        const sourceName = `${title.replace(/[\\/:*?"<>|\x00-\x1f]/g, '_').trim() || 'merged'}.hwpx`;
+        const r = await registerVersion({
+          buffer, sourceName,
+          id: String(body.id ?? ''),
+          title,
+          version: String(body.version ?? ''),
+          note: String(body.note ?? '').slice(0, 500),
+          overwrite: body.overwrite === true,
+          mergedFrom,
+        });
+        return send(res, 200, { ...r, bytes: buffer.length });
       }
 
       if (req.method === 'POST' && url.pathname === '/api/delete') {
