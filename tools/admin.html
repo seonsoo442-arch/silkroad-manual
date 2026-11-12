@@ -24,7 +24,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 .btn:disabled{opacity:.5;cursor:default}
 .btn.sec{background:transparent;color:var(--t);border:1px solid var(--l);padding:4px 10px;margin:0;font-weight:400}
 .msg{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--bs)}
-.msg.ok{color:var(--ok)}.msg.er{color:var(--er)}.msg.warn{color:var(--er);background:transparent;border:1px solid var(--er)}
+.msg.ok{color:var(--ok)}.msg.er{color:var(--er);background:transparent;border:1px solid var(--er);font-weight:600}.msg.warn{color:var(--er);background:transparent;border:1px solid var(--er)}
 table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--l)}th{color:var(--m)}
 small{color:var(--m)}
 .pickrow{display:grid;grid-template-columns:1fr 140px auto;gap:8px;align-items:end}@media(max-width:600px){.pickrow{grid-template-columns:1fr 1fr}}
@@ -93,7 +93,7 @@ small{color:var(--m)}
       <div><label for="mVersion">버전</label><input id="mVersion" maxlength="30" value="1.0"></div>
     </div>
     <div class="row" id="mNewBox">
-      <div><label for="mId">새 문서 ID (영문 소문자·숫자·-)</label><input id="mId" maxlength="40" placeholder="예: user-guide-all"></div>
+      <div><label for="mId">새 문서 ID <small>(선택 · 비우면 자동)</small></label><input id="mId" maxlength="40" placeholder="비워 두면 자동 생성 (예: user-guide-all)"></div>
       <div><label for="mTitle">문서 제목 (다운로드 파일 이름)</label><input id="mTitle" maxlength="100" placeholder="예: SILKROAD 사용자 메뉴얼 통합본"></div>
     </div>
     <label for="mNote">변경 내용</label>
@@ -255,12 +255,18 @@ function renderOrder(){
     ol.append(li);
   });
 }
+// 문서 ID: 대문자는 소문자로, 띄어쓰기·밑줄은 하이픈으로 자동 변환
+$('mId').oninput=()=>{const el=$('mId'),v=el.value.toLowerCase().replace(/[\s_]+/g,'-');if(v!==el.value)el.value=v;};
 $('mGo').onclick=async()=>{
-  if(order.length<2){show($('mResult'),'er','병합할 문서를 2개 이상 추가하세요.');return;}
+  const fail=(t)=>show($('mResult'),'er','병합하지 않았습니다: '+t);
+  if(order.length<2)return fail('병합할 문서를 2개 이상 추가하세요.');
   const isNew=$('mTarget').value==='__new';
   const title=$('mTitle').value.trim();
+  if(isNew&&$('mId').value.trim()&&!/^[a-z0-9][a-z0-9-]{0,39}$/.test($('mId').value.trim()))return fail('문서 ID는 영문 소문자·숫자·하이픈(-)만 사용할 수 있습니다. (예: user-manual-all)');
+  if(isNew&&$('mId').value.trim()&&mById($('mId').value.trim()))return fail(`이미 사용 중인 문서 ID입니다: ${$('mId').value.trim()}`);
+  if(!title)return fail('문서 제목을 입력하세요.');
   const note=$('mNote').value.trim()||('병합: '+order.map((it)=>`${mById(it.id).title} v${it.version}`).join(' + ')).slice(0,500);
-  const body={items:order,id:isNew?$('mId').value.trim():$('mTarget').value,title,version:$('mVersion').value.trim(),note,overwrite:$('mOverwrite').checked};
+  const body={items:order,isNew,id:isNew?$('mId').value.trim():$('mTarget').value,title,version:$('mVersion').value.trim(),note,overwrite:$('mOverwrite').checked};
   $('mGo').disabled=true;show($('mResult'),'',`${order.length}개 문서를 병합하고 변환하는 중입니다… (큰 문서는 1분 이상 걸릴 수 있습니다)`);
   try{
     const r=await api('/api/merge',{method:'POST',body:JSON.stringify(body)});
@@ -268,7 +274,7 @@ $('mGo').onclick=async()=>{
     const a=document.createElement('a');a.href=`http://127.0.0.1:5173/viewer.html?m=${r.id}&v=${encodeURIComponent(r.version)}`;a.target='_blank';a.textContent=' 열람 화면 열기';$('mResult').append(a);
     $('mNote').value='';
     await refresh();
-  }catch(e){show($('mResult'),'er',e.message);}
+  }catch(e){fail(e.message);}
   $('mGo').disabled=false;
 };
 

@@ -93,6 +93,19 @@ http
         if (items.length < 2) throw new Error('병합할 문서를 2개 이상 선택하세요.');
         if (items.length > 50) throw new Error('한 번에 50개까지 병합할 수 있습니다.');
         const manifest = readManifest();
+        // 새 문서 ID를 비워 두면 자동으로 만든다: 영문 제목이면 제목에서, 아니면 merged / merged-2 …
+        if (body.isNew === true && !String(body.id ?? '').trim()) {
+          const base = String(body.title ?? '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 34) || 'merged';
+          let id = base, n = 1;
+          while (manifest.manuals.some((x) => x.id === id)) id = `${base}-${++n}`;
+          body.id = id;
+        }
+        // 오래 걸리는 병합 전에 입력값부터 확인한다
+        if (!ID_RE.test(String(body.id ?? ''))) throw new Error('문서 ID는 영문 소문자·숫자·하이픈(-)만 사용할 수 있습니다. (띄어쓰기 불가, 예: user-manual-all)');
+        if (!VER_RE.test(String(body.version ?? ''))) throw new Error('버전은 영문·숫자·점·하이픈·밑줄만 사용할 수 있습니다. (예: 1.0)');
+        const target = manifest.manuals.find((x) => x.id === body.id);
+        if (body.isNew === true && target) throw new Error(`이미 사용 중인 문서 ID입니다: ${body.id} (${target.title}). 다른 ID를 입력하세요.`);
+        if (target?.versions.some((v) => v.version === body.version) && body.overwrite !== true) throw new Error(`이미 존재하는 버전입니다: ${body.id} v${body.version} (버전을 바꾸거나 덮어쓰기를 선택하세요)`);
         const docs = [];
         const mergedFrom = [];
         for (const it of items) {
