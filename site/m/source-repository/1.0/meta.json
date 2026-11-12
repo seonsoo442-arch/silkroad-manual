@@ -1,0 +1,19 @@
+{
+ "id": "source-repository",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "17 Source Repository.hwpx",
+ "sourceBytes": 5486800,
+ "sha256": "50e2a52dd1dd023e9d64e4ad40374caa895c4876cbfbd68ce58df07c1e2eb75d",
+ "convertedAt": "2026-11-12T22:50:28.979Z",
+ "stats": {
+  "paragraphs": 462,
+  "headings": 49,
+  "tables": 85,
+  "images": 112,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 62536246,
+ "imageBytesAfter": 1693650
+}

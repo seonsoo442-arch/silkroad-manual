@@ -1,0 +1,19 @@
+{
+ "id": "odocs",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "07 oDOCS.hwpx",
+ "sourceBytes": 2784098,
+ "sha256": "e0125c3dacfc34bc4a4ec6dfee7ac1a796972cf04cf6da1cb71a4f49821f3780",
+ "convertedAt": "2026-11-12T22:49:55.781Z",
+ "stats": {
+  "paragraphs": 197,
+  "headings": 32,
+  "tables": 27,
+  "images": 36,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 34711452,
+ "imageBytesAfter": 860570
+}

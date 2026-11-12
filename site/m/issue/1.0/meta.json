@@ -1,0 +1,19 @@
+{
+ "id": "issue",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "10 Issue.hwpx",
+ "sourceBytes": 7427038,
+ "sha256": "25253ae93a65d49267890ee7feb12ee6bcf9e12050b45d35d91191d2f6100eba",
+ "convertedAt": "2026-11-12T22:50:07.329Z",
+ "stats": {
+  "paragraphs": 418,
+  "headings": 47,
+  "tables": 73,
+  "images": 77,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 113996916,
+ "imageBytesAfter": 2853920
+}

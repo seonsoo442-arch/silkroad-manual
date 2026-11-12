@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+
+# 원본 문서는 로컬에만 보관 (변환 결과와 원본 HWPX는 site/m/ 에 포함됨)
+/hwpx 변환 전 사용자메뉴얼/
+/사용자메뉴얼/
+
+# 변환 임시 폴더, 로그, 테스트 잔여물
+site/m/*/.tmp-*/
+tools/*_log.txt
+tools/*_out.txt
+tools/t.bat
+tools/t2.bat

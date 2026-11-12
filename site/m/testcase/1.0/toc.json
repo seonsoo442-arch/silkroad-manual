@@ -1,0 +1,920 @@
+[
+ {
+  "id": "h1",
+  "level": 1,
+  "num": "1.",
+  "text": "개요"
+ },
+ {
+  "id": "h2",
+  "level": 2,
+  "num": "1.1",
+  "text": "Test Plan/Procedure DOCS (Documenting Of Critical S/W)"
+ },
+ {
+  "id": "h3",
+  "level": 3,
+  "num": "1.1.1",
+  "text": "Test Plan/Procedure 문서 관리"
+ },
+ {
+  "id": "h4",
+  "level": 4,
+  "num": "1.1.1.1",
+  "text": "DOCS 실행(Web)"
+ },
+ {
+  "id": "h5",
+  "level": 5,
+  "num": "1.1.1.1.1",
+  "text": "새 문서 등록"
+ },
+ {
+  "id": "h6",
+  "level": 5,
+  "num": "1.1.1.1.2",
+  "text": "등록된 문서 열기"
+ },
+ {
+  "id": "h7",
+  "level": 4,
+  "num": "1.1.1.2",
+  "text": "DOCS 실행(Local)"
+ },
+ {
+  "id": "h8",
+  "level": 5,
+  "num": "1.1.1.2.1",
+  "text": "최근 작업 문서 실행(Recent Documents)"
+ },
+ {
+  "id": "h9",
+  "level": 5,
+  "num": "1.1.1.2.2",
+  "text": "새 문서 등록(Create Documents)"
+ },
+ {
+  "id": "h10",
+  "level": 5,
+  "num": "1.1.1.2.3",
+  "text": "등록된 문서 열기(Open Documents)"
+ },
+ {
+  "id": "h11",
+  "level": 4,
+  "num": "1.1.1.3",
+  "text": "DOCS 화면구성(Test Plan/Procedure)"
+ },
+ {
+  "id": "h12",
+  "level": 4,
+  "num": "1.1.1.4",
+  "text": "환경설정"
+ },
+ {
+  "id": "h13",
+  "level": 5,
+  "num": "1.1.1.4.1",
+  "text": "Workspace 설정"
+ },
+ {
+  "id": "h14",
+  "level": 4,
+  "num": "1.1.1.5",
+  "text": "자동 저장 설정 (Auto Save)"
+ },
+ {
+  "id": "h15",
+  "level": 5,
+  "num": "1.1.1.5.1",
+  "text": "임시저장 폴더 관리 (Temp Files)"
+ },
+ {
+  "id": "h16",
+  "level": 5,
+  "num": "1.1.1.5.2",
+  "text": "요구사항 내용에 장절 표시 옵션 (Numbering)"
+ },
+ {
+  "id": "h17",
+  "level": 5,
+  "num": "1.1.1.5.3",
+  "text": "DOCS 자동 로그인 (Login)"
+ },
+ {
+  "id": "h18",
+  "level": 4,
+  "num": "1.1.1.6",
+  "text": "DOCS 실행 (Files)"
+ },
+ {
+  "id": "h19",
+  "level": 4,
+  "num": "1.1.1.7",
+  "text": "문서 생성"
+ },
+ {
+  "id": "h20",
+  "level": 5,
+  "num": "1.1.1.7.1",
+  "text": "새 문서 (Create)"
+ },
+ {
+  "id": "h21",
+  "level": 5,
+  "num": "1.1.1.7.2",
+  "text": "문서 열기 (Open)"
+ },
+ {
+  "id": "h22",
+  "level": 4,
+  "num": "1.1.1.8",
+  "text": "문서 삭제 (Delete)"
+ },
+ {
+  "id": "h23",
+  "level": 5,
+  "num": "1.1.1.8.1",
+  "text": "DOCS에서 문서 삭제 (Delete)"
+ },
+ {
+  "id": "h24",
+  "level": 5,
+  "num": "1.1.1.8.2",
+  "text": "기능시험 관리 모듈에서 문서 삭제 (Delete)"
+ },
+ {
+  "id": "h25",
+  "level": 4,
+  "num": "1.1.1.9",
+  "text": "문서 닫기 (Close)"
+ },
+ {
+  "id": "h26",
+  "level": 5,
+  "num": "1.1.1.9.1",
+  "text": "DOCS 편집 문서가 Publish 되지 않았고, 수정사항이 없는 경우"
+ },
+ {
+  "id": "h27",
+  "level": 5,
+  "num": "1.1.1.9.2",
+  "text": "DOCS 편집 문서가 Publish 되지 않았고, 수정사항이 있는 경우"
+ },
+ {
+  "id": "h28",
+  "level": 5,
+  "num": "1.1.1.9.3",
+  "text": "DOCS 편집 문서가 Publish 되었고, 수정사항이 없는 경우"
+ },
+ {
+  "id": "h29",
+  "level": 5,
+  "num": "1.1.1.9.4",
+  "text": "DOCS 편집 문서가 Publish 되었고, 수정사항이 있는 경우"
+ },
+ {
+  "id": "h30",
+  "level": 4,
+  "num": "1.1.1.10",
+  "text": "문서 출력 (Print)"
+ },
+ {
+  "id": "h31",
+  "level": 4,
+  "num": "1.1.1.11",
+  "text": "문서 검증 (Verification)"
+ },
+ {
+  "id": "h32",
+  "level": 4,
+  "num": "1.1.1.12",
+  "text": "문서 병합 (Link&Unlink)"
+ },
+ {
+  "id": "h33",
+  "level": 5,
+  "num": "1.1.1.12.1",
+  "text": "병합대상 문서 추가 (Link)"
+ },
+ {
+  "id": "h34",
+  "level": 4,
+  "num": "1.1.1.13",
+  "text": "병합대상 문서 위치 이동"
+ },
+ {
+  "id": "h35",
+  "level": 5,
+  "num": "1.1.1.13.1",
+  "text": "문서 병합 삭제 (Unlink)"
+ },
+ {
+  "id": "h36",
+  "level": 4,
+  "num": "1.1.1.14",
+  "text": "문서 임시저장 및 저장 문서 불러오기"
+ },
+ {
+  "id": "h37",
+  "level": 5,
+  "num": "1.1.1.14.1",
+  "text": "문서 임시저장 (Save)"
+ },
+ {
+  "id": "h38",
+  "level": 5,
+  "num": "1.1.1.14.2",
+  "text": "수동 저장"
+ },
+ {
+  "id": "h39",
+  "level": 5,
+  "num": "1.1.1.14.3",
+  "text": "자동 저장"
+ },
+ {
+  "id": "h40",
+  "level": 4,
+  "num": "1.1.1.15",
+  "text": "임시저장 문서 불러오기 (Load)"
+ },
+ {
+  "id": "h41",
+  "level": 4,
+  "num": "1.1.1.16",
+  "text": "MS-Word Import/Export"
+ },
+ {
+  "id": "h42",
+  "level": 5,
+  "num": "1.1.1.16.1",
+  "text": "실크로드 문서 Import(Create)"
+ },
+ {
+  "id": "h43",
+  "level": 5,
+  "num": "1.1.1.16.2",
+  "text": "실크로드 문서 Import(Update)"
+ },
+ {
+  "id": "h44",
+  "level": 5,
+  "num": "1.1.1.16.3",
+  "text": "MS-Word Import(Select)"
+ },
+ {
+  "id": "h45",
+  "level": 5,
+  "num": "1.1.1.16.4",
+  "text": "MS-Word Export"
+ },
+ {
+  "id": "h46",
+  "level": 4,
+  "num": "1.1.1.17",
+  "text": "문서 저장 (PubSave)"
+ },
+ {
+  "id": "h47",
+  "level": 4,
+  "num": "1.1.1.18",
+  "text": "문서 발행 (Publish)"
+ },
+ {
+  "id": "h48",
+  "level": 5,
+  "num": "1.1.1.18.1",
+  "text": "문서 속성 설정"
+ },
+ {
+  "id": "h49",
+  "level": 4,
+  "num": "1.1.1.19",
+  "text": "문서 첨부파일 관리 (Files)"
+ },
+ {
+  "id": "h50",
+  "level": 5,
+  "num": "1.1.1.19.1",
+  "text": "문서 첨부파일 등록"
+ },
+ {
+  "id": "h51",
+  "level": 5,
+  "num": "1.1.1.19.2",
+  "text": "문서 첨부파일 삭제"
+ },
+ {
+  "id": "h52",
+  "level": 4,
+  "num": "1.1.1.20",
+  "text": "문서 변경 이력 (Revision)"
+ },
+ {
+  "id": "h53",
+  "level": 4,
+  "num": "1.1.1.21",
+  "text": "문서 비교 (Compare)"
+ },
+ {
+  "id": "h54",
+  "level": 3,
+  "num": "1.1.2",
+  "text": "Test Feature/Test Case 관리"
+ },
+ {
+  "id": "h55",
+  "level": 4,
+  "num": "1.1.2.1",
+  "text": "Test Feature/Test Case 개별 등록 (Add)"
+ },
+ {
+  "id": "h56",
+  "level": 4,
+  "num": "1.1.2.2",
+  "text": "Test Feature/Test Case 자동 등록 (Capture)"
+ },
+ {
+  "id": "h57",
+  "level": 5,
+  "num": "1.1.2.2.1",
+  "text": "‘Req’ 기반 등록"
+ },
+ {
+  "id": "h58",
+  "level": 5,
+  "num": "1.1.2.2.2",
+  "text": "‘[Req], <Req>’ 기반 등록"
+ },
+ {
+  "id": "h59",
+  "level": 5,
+  "num": "1.1.2.2.3",
+  "text": "‘[[Req]-UpDoc[UpReq],[UpReq]],‘<<Req>-UpDoc<UpReq>,<UpReq>>’ 기반 등록"
+ },
+ {
+  "id": "h60",
+  "level": 5,
+  "num": "1.1.2.2.4",
+  "text": "‘keyword’ 기반 등록"
+ },
+ {
+  "id": "h61",
+  "level": 5,
+  "num": "1.1.2.2.5",
+  "text": "Wild Card 기능"
+ },
+ {
+  "id": "h62",
+  "level": 5,
+  "num": "1.1.2.2.6",
+  "text": "End Tag 기반 Test Feature/Test Case 식별 및 자동 등록"
+ },
+ {
+  "id": "h63",
+  "level": 5,
+  "num": "1.1.2.2.7",
+  "text": "문단 내 Test Feature/Test Case 식별 및 자동 등록 (Capture phrase keyword)"
+ },
+ {
+  "id": "h64",
+  "level": 5,
+  "num": "1.1.2.2.8",
+  "text": "표(셀) 내 Test Feature/Test Case 식별 및 자동 등록 (Capture table keyword)"
+ },
+ {
+  "id": "h65",
+  "level": 5,
+  "num": "1.1.2.2.9",
+  "text": "표(셀) 내 문장 안에 위치한 Test Feature/Test Case 등록"
+ },
+ {
+  "id": "h66",
+  "level": 5,
+  "num": "1.1.2.2.10",
+  "text": "Test Case 테스트 실행 결과 입력 필드 식별 (Pass/Fail)"
+ },
+ {
+  "id": "h67",
+  "level": 4,
+  "num": "1.1.2.3",
+  "text": "Test Feature/Test Case 수정"
+ },
+ {
+  "id": "h68",
+  "level": 5,
+  "num": "1.1.2.3.1",
+  "text": "Test Feature/Test Case 내용 수정"
+ },
+ {
+  "id": "h69",
+  "level": 5,
+  "num": "1.1.2.3.2",
+  "text": "Test Feature/Test Case 속성(Property)"
+ },
+ {
+  "id": "h70",
+  "level": 4,
+  "num": "1.1.2.4",
+  "text": "Test Feature/Test Case 삭제"
+ },
+ {
+  "id": "h71",
+  "level": 4,
+  "num": "1.1.2.5",
+  "text": "Test Feature/Test Case 첨부파일 관리 (Files)"
+ },
+ {
+  "id": "h72",
+  "level": 5,
+  "num": "1.1.2.5.1",
+  "text": "Test Feature/Test Case 첨부파일 등록"
+ },
+ {
+  "id": "h73",
+  "level": 5,
+  "num": "1.1.2.5.2",
+  "text": "Test Feature/Test Case 첨부파일 삭제"
+ },
+ {
+  "id": "h74",
+  "level": 4,
+  "num": "1.1.2.6",
+  "text": "Test Feature/Test Case 변경 이력 (Revision)"
+ },
+ {
+  "id": "h75",
+  "level": 4,
+  "num": "1.1.2.7",
+  "text": "Test Feature/Test Case 영역 표시 설정 (Mark On/off)"
+ },
+ {
+  "id": "h76",
+  "level": 4,
+  "num": "1.1.2.8",
+  "text": "상위 요구사항 정보 텍스트 추가 (InsLink)"
+ },
+ {
+  "id": "h77",
+  "level": 4,
+  "num": "1.1.2.9",
+  "text": "Test Feature/Test Case 식별자 중복체크 (Checker)"
+ },
+ {
+  "id": "h78",
+  "level": 3,
+  "num": "1.1.3",
+  "text": "요구사항 또는 Test Feature-Test Case 추적성 관리"
+ },
+ {
+  "id": "h79",
+  "level": 4,
+  "num": "1.1.3.1",
+  "text": "Test Feature/Test Case 추적성 연결(1)"
+ },
+ {
+  "id": "h80",
+  "level": 4,
+  "num": "1.1.3.2",
+  "text": "요구사항 또는 Test Feature-Test Case 추적성 연결 (2)"
+ },
+ {
+  "id": "h81",
+  "level": 4,
+  "num": "1.1.3.3",
+  "text": "추적성 매트릭스 (RTM)"
+ },
+ {
+  "id": "h82",
+  "level": 3,
+  "num": "1.1.4",
+  "text": "오류 메시지 목록"
+ },
+ {
+  "id": "h83",
+  "level": 2,
+  "num": "1.2",
+  "text": "Test Execution (테스트 실행)"
+ },
+ {
+  "id": "h84",
+  "level": 3,
+  "num": "1.2.1",
+  "text": "Test Execution"
+ },
+ {
+  "id": "h85",
+  "level": 4,
+  "num": "1.2.1.1",
+  "text": "화면 구성"
+ },
+ {
+  "id": "h86",
+  "level": 4,
+  "num": "1.2.1.2",
+  "text": "Test Execution 생성"
+ },
+ {
+  "id": "h87",
+  "level": 4,
+  "num": "1.2.1.3",
+  "text": "Test Execution 수정"
+ },
+ {
+  "id": "h88",
+  "level": 3,
+  "num": "1.2.2",
+  "text": "테스트 실행 (Test Run)"
+ },
+ {
+  "id": "h89",
+  "level": 3,
+  "num": "1.2.3",
+  "text": "전자 서명"
+ },
+ {
+  "id": "h90",
+  "level": 3,
+  "num": "1.2.4",
+  "text": "테스트 실행 시 전자 서명 입력"
+ },
+ {
+  "id": "h91",
+  "level": 4,
+  "num": "1.2.4.1",
+  "text": "전자 서명 일괄 입력"
+ },
+ {
+  "id": "h92",
+  "level": 3,
+  "num": "1.2.5",
+  "text": "Test Cycle (테스트 주기) 관리"
+ },
+ {
+  "id": "h93",
+  "level": 4,
+  "num": "1.2.5.1",
+  "text": "화면 구성"
+ },
+ {
+  "id": "h94",
+  "level": 4,
+  "num": "1.2.5.2",
+  "text": "Test Cycle 생성"
+ },
+ {
+  "id": "h95",
+  "level": 5,
+  "num": "1.2.5.2.1",
+  "text": "자동 생성"
+ },
+ {
+  "id": "h96",
+  "level": 5,
+  "num": "1.2.5.2.2",
+  "text": "수동 생성"
+ },
+ {
+  "id": "h97",
+  "level": 4,
+  "num": "1.2.5.3",
+  "text": "Test Cycle 수정 및 삭제"
+ },
+ {
+  "id": "h98",
+  "level": 4,
+  "num": "1.2.5.4",
+  "text": "소스 리비전 파일 등록 및 수정"
+ },
+ {
+  "id": "h99",
+  "level": 4,
+  "num": "1.2.5.5",
+  "text": "PDF 뷰어 (PDF Viewer)"
+ },
+ {
+  "id": "h100",
+  "level": 3,
+  "num": "1.2.6",
+  "text": "Test Report (테스트 보고서) 관리"
+ },
+ {
+  "id": "h101",
+  "level": 4,
+  "num": "1.2.6.1",
+  "text": "테스트 결과 이력 확인"
+ },
+ {
+  "id": "h102",
+  "level": 4,
+  "num": "1.2.6.2",
+  "text": "테스트 결과 보고서 (Test Report) 작성"
+ },
+ {
+  "id": "h103",
+  "level": 5,
+  "num": "1.2.6.2.1",
+  "text": "Test Case 테스트 실행 결과 첨부 파일"
+ },
+ {
+  "id": "h104",
+  "level": 3,
+  "num": "1.2.7",
+  "text": "Coverage 관리 (요구사항-Test Case 간 추적성)"
+ },
+ {
+  "id": "h105",
+  "level": 3,
+  "num": "1.2.8",
+  "text": "Coverage 화면 구성"
+ },
+ {
+  "id": "h106",
+  "level": 3,
+  "num": "1.2.9",
+  "text": "Coverage Filter"
+ },
+ {
+  "id": "h107",
+  "level": 3,
+  "num": "1.2.10",
+  "text": "Coverage Excel 다운로드"
+ },
+ {
+  "id": "h108",
+  "level": 2,
+  "num": "1.3",
+  "text": "Functional Test Management (기능시험 관리)"
+ },
+ {
+  "id": "h109",
+  "level": 3,
+  "num": "1.3.1",
+  "text": "화면구성"
+ },
+ {
+  "id": "h110",
+  "level": 3,
+  "num": "1.3.2",
+  "text": "Document List"
+ },
+ {
+  "id": "h111",
+  "level": 4,
+  "num": "1.3.2.1",
+  "text": "Folder (폴더) 관리"
+ },
+ {
+  "id": "h112",
+  "level": 5,
+  "num": "1.3.2.1.1",
+  "text": "생성"
+ },
+ {
+  "id": "h113",
+  "level": 5,
+  "num": "1.3.2.1.2",
+  "text": "수정 및 삭제"
+ },
+ {
+  "id": "h114",
+  "level": 3,
+  "num": "1.3.3",
+  "text": "문서 및 폴더 위치 이동"
+ },
+ {
+  "id": "h115",
+  "level": 5,
+  "num": "1.3.3.1.1",
+  "text": "Drag & Drop"
+ },
+ {
+  "id": "h116",
+  "level": 5,
+  "num": "1.3.3.1.2",
+  "text": "Order Setting"
+ },
+ {
+  "id": "h117",
+  "level": 4,
+  "num": "1.3.3.2",
+  "text": "Full Summary Report"
+ },
+ {
+  "id": "h118",
+  "level": 4,
+  "num": "1.3.3.3",
+  "text": "Test Report Template Setting"
+ },
+ {
+  "id": "h119",
+  "level": 4,
+  "num": "1.3.3.4",
+  "text": "Field Dependency Settings"
+ },
+ {
+  "id": "h120",
+  "level": 4,
+  "num": "1.3.3.5",
+  "text": "Execution Setting"
+ },
+ {
+  "id": "h121",
+  "level": 3,
+  "num": "1.3.4",
+  "text": "문서 보기 (Document/Grid/Coverage)"
+ },
+ {
+  "id": "h122",
+  "level": 4,
+  "num": "1.3.4.1",
+  "text": "Document View"
+ },
+ {
+  "id": "h123",
+  "level": 5,
+  "num": "1.3.4.1.1",
+  "text": "문서정보 (Information)"
+ },
+ {
+  "id": "h124",
+  "level": 5,
+  "num": "1.3.4.1.2",
+  "text": "문서 버전 목록 (Version)"
+ },
+ {
+  "id": "h125",
+  "level": 5,
+  "num": "1.3.4.1.3",
+  "text": "문서 편집 (Edit)"
+ },
+ {
+  "id": "h126",
+  "level": 5,
+  "num": "1.3.4.1.4",
+  "text": "Publish 이력 조회 (Revision)"
+ },
+ {
+  "id": "h127",
+  "level": 5,
+  "num": "1.3.4.1.5",
+  "text": "문서 버전 비교 (Compare)"
+ },
+ {
+  "id": "h128",
+  "level": 5,
+  "num": "1.3.4.1.6",
+  "text": "다운로드 (Download)"
+ },
+ {
+  "id": "h129",
+  "level": 5,
+  "num": "1.3.4.1.7",
+  "text": "병합된 단일 문서 생성 (Product – MS Word)"
+ },
+ {
+  "id": "h130",
+  "level": 5,
+  "num": "1.3.4.1.8",
+  "text": "요약 보고서 (Summary Report)"
+ },
+ {
+  "id": "h131",
+  "level": 5,
+  "num": "1.3.4.1.9",
+  "text": "문서 잠금/해제 (Lock/Unlock)"
+ },
+ {
+  "id": "h132",
+  "level": 5,
+  "num": "1.3.4.1.10",
+  "text": "개인별 문서 접근권한 설정"
+ },
+ {
+  "id": "h133",
+  "level": 5,
+  "num": "1.3.4.1.11",
+  "text": "Test Feature/Test Case 분석"
+ },
+ {
+  "id": "h134",
+  "level": 6,
+  "num": "1.3.4.1.11.1",
+  "text": "Test Feature/Test Case 목록"
+ },
+ {
+  "id": "h135",
+  "level": 6,
+  "num": "1.3.4.1.11.2",
+  "text": "Test Feature/Test Case 검색"
+ },
+ {
+  "id": "h136",
+  "level": 6,
+  "num": "1.3.4.1.11.3",
+  "text": "Test Feature/Test Case 필터"
+ },
+ {
+  "id": "h137",
+  "level": 6,
+  "num": "1.3.4.1.11.4",
+  "text": "Test Feature/Test Case 관련(Relation) 이슈 생성"
+ },
+ {
+  "id": "h138",
+  "level": 6,
+  "num": "1.3.4.1.11.5",
+  "text": "영향도 분석"
+ },
+ {
+  "id": "h139",
+  "level": 4,
+  "num": "1.3.4.2",
+  "text": "Grid View"
+ },
+ {
+  "id": "h140",
+  "level": 5,
+  "num": "1.3.4.2.1",
+  "text": "칼럼설정"
+ },
+ {
+  "id": "h141",
+  "level": 5,
+  "num": "1.3.4.2.2",
+  "text": "필터"
+ },
+ {
+  "id": "h142",
+  "level": 5,
+  "num": "1.3.4.2.3",
+  "text": "내보내기 (Export)"
+ },
+ {
+  "id": "h143",
+  "level": 4,
+  "num": "1.3.4.3",
+  "text": "Coverage View"
+ },
+ {
+  "id": "h144",
+  "level": 5,
+  "num": "1.3.4.3.1",
+  "text": "Horizontal Coverage (요구사항-테스트케이스 간 커버리지)"
+ },
+ {
+  "id": "h145",
+  "level": 6,
+  "num": "1.3.4.3.1.1",
+  "text": "Expand Options"
+ },
+ {
+  "id": "h146",
+  "level": 6,
+  "num": "1.3.4.3.1.2",
+  "text": "View Options"
+ },
+ {
+  "id": "h147",
+  "level": 6,
+  "num": "1.3.4.3.1.3",
+  "text": "Export Options"
+ },
+ {
+  "id": "h148",
+  "level": 6,
+  "num": "1.3.4.3.1.4",
+  "text": "필터 (Filter)"
+ },
+ {
+  "id": "h149",
+  "level": 6,
+  "num": "1.3.4.3.1.5",
+  "text": "Test Feature/Test Case 범위 지정"
+ },
+ {
+  "id": "h150",
+  "level": 6,
+  "num": "1.3.4.3.1.6",
+  "text": "Screen Export : Excel"
+ },
+ {
+  "id": "h151",
+  "level": 6,
+  "num": "1.3.4.3.1.7",
+  "text": "Full Export : Excel"
+ },
+ {
+  "id": "h152",
+  "level": 6,
+  "num": "1.3.4.3.1.8",
+  "text": "Export To Word"
+ },
+ {
+  "id": "h153",
+  "level": 3,
+  "num": "1.3.5",
+  "text": "오류 메시지 목록"
+ }
+]

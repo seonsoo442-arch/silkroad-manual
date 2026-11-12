@@ -1,0 +1,19 @@
+{
+ "id": "testcase",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "13 TestCase.hwpx",
+ "sourceBytes": 25902183,
+ "sha256": "12dfce1dad702de43b942fa871fb483964abde38c9fdfc77201a9bd1b0d545fb",
+ "convertedAt": "2026-11-12T22:51:23.208Z",
+ "stats": {
+  "paragraphs": 1907,
+  "headings": 153,
+  "tables": 231,
+  "images": 336,
+  "missingImages": 2
+ },
+ "warnings": {},
+ "imageBytesBefore": 226635324,
+ "imageBytesAfter": 7631096
+}

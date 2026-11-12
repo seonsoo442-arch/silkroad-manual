@@ -1,0 +1,19 @@
+{
+ "id": "peerreview",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "16 PeerReview.hwpx",
+ "sourceBytes": 7957115,
+ "sha256": "23ea7ffcfb76e49683687c1da6ab5a4399b3530689816b5c2ead710f81695f23",
+ "convertedAt": "2026-11-12T22:50:26.031Z",
+ "stats": {
+  "paragraphs": 426,
+  "headings": 45,
+  "tables": 60,
+  "images": 83,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 97254960,
+ "imageBytesAfter": 2573040
+}

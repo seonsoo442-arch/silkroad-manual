@@ -1,0 +1,535 @@
+{
+ "manuals": [
+  {
+   "id": "project",
+   "title": "프로젝트 (Project)",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-08T23:20:14.622Z",
+     "note": "샘플 최초 변환",
+     "sha256": "bd9c919f8b42d37613a5f47eff74265e8ea6267ad17a7a69a82ea237ce0a18c3",
+     "sourceName": "01 Project - 수정완료.hwpx",
+     "sourceBytes": 1520736,
+     "headings": 20,
+     "tables": 24,
+     "images": 26
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "login",
+   "title": "Login",
+   "nameKey": "login",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-09T21:54:49.193Z",
+     "note": "",
+     "sha256": "59e3224b13d9a25ad9bfc6957124796fc17eb7467d608de2466292d218d09208",
+     "sourceName": "02 Login.hwpx",
+     "sourceBytes": 293201,
+     "headings": 7,
+     "tables": 11,
+     "images": 10
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "dashboard",
+   "title": "Dashboard",
+   "nameKey": "dashboard",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-09T21:55:05.124Z",
+     "note": "",
+     "sha256": "63a7b4948fb46c931ed4aab7ef9cfdd26029ff13d631d27539862daff00cb4d2",
+     "sourceName": "03 Dashboard.hwpx",
+     "sourceBytes": 1801354,
+     "headings": 59,
+     "tables": 82,
+     "images": 129
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "plan",
+   "title": "Plan",
+   "nameKey": "plan",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-09T21:55:21.458Z",
+     "note": "",
+     "sha256": "a08034917cc6264dad1815dd4742db17e9a2de674676bd5f475923bb4922ced9",
+     "sourceName": "04 Plan.hwpx",
+     "sourceBytes": 8938740,
+     "headings": 63,
+     "tables": 115,
+     "images": 117
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "requirement",
+   "title": "Requirement",
+   "nameKey": "requirement",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:43:52.217Z",
+     "note": "묶음 그림 처리 추가",
+     "sha256": "4a86ea30a338ca5a8c49230ce96e3ac97dead4e8b07211b95380976e1fe59821",
+     "sourceName": "05 Requirement.hwpx",
+     "sourceBytes": 30326554,
+     "headings": 140,
+     "tables": 230,
+     "images": 302
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "sdocs",
+   "title": "sDOCS",
+   "nameKey": "sdocs",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-09T21:55:40.003Z",
+     "note": "",
+     "sha256": "dda022dfb8f579fe4bd365751ff4f7451a16a80c160a24c0ce4146730fe1973e",
+     "sourceName": "06 sDOCS.hwpx",
+     "sourceBytes": 3953229,
+     "headings": 40,
+     "tables": 41,
+     "images": 36
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "odocs",
+   "title": "oDOCS",
+   "nameKey": "odocs",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:49:55.781Z",
+     "note": "",
+     "sha256": "e0125c3dacfc34bc4a4ec6dfee7ac1a796972cf04cf6da1cb71a4f49821f3780",
+     "sourceName": "07 oDOCS.hwpx",
+     "sourceBytes": 2784098,
+     "headings": 32,
+     "tables": 27,
+     "images": 36
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "traceability",
+   "title": "Traceability",
+   "nameKey": "traceability",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:49:58.404Z",
+     "note": "",
+     "sha256": "dd2d56bdd8e14c13bd9f845654e4777b63887780f451e1bb3d1d8d542bc2ec54",
+     "sourceName": "08 Traceability.hwpx",
+     "sourceBytes": 6035606,
+     "headings": 21,
+     "tables": 24,
+     "images": 50
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "task",
+   "title": "Task",
+   "nameKey": "task",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:02.678Z",
+     "note": "",
+     "sha256": "179b9713483b00b73c070a93433d9b574dba96f97357c8dff20196abe06755f6",
+     "sourceName": "09 Task.hwpx",
+     "sourceBytes": 8188052,
+     "headings": 52,
+     "tables": 87,
+     "images": 106
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "issue",
+   "title": "Issue",
+   "nameKey": "issue",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:07.329Z",
+     "note": "",
+     "sha256": "25253ae93a65d49267890ee7feb12ee6bcf9e12050b45d35d91191d2f6100eba",
+     "sourceName": "10 Issue.hwpx",
+     "sourceBytes": 7427038,
+     "headings": 47,
+     "tables": 73,
+     "images": 77
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "repository",
+   "title": "Repository",
+   "nameKey": "repository",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:08.946Z",
+     "note": "",
+     "sha256": "b2f0c6221e66663d444b088009ce794817c5a61dd6a17166180c45259e5ecbde",
+     "sourceName": "11 Repository.hwpx",
+     "sourceBytes": 2641407,
+     "headings": 11,
+     "tables": 16,
+     "images": 38
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "staticanalysis-unittest",
+   "title": "StaticAnalysis_UnitTest",
+   "nameKey": "staticanalysis_unittest",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:13.357Z",
+     "note": "",
+     "sha256": "9be270ebf83f345fce937c4868b57934942f2f1da4564fbcc2fa72a785cd669c",
+     "sourceName": "12 StaticAnalysis_UnitTest.hwpx",
+     "sourceBytes": 9041524,
+     "headings": 43,
+     "tables": 81,
+     "images": 95
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "testcase",
+   "title": "TestCase",
+   "nameKey": "testcase",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:51:23.208Z",
+     "note": "",
+     "sha256": "12dfce1dad702de43b942fa871fb483964abde38c9fdfc77201a9bd1b0d545fb",
+     "sourceName": "13 TestCase.hwpx",
+     "sourceBytes": 25902183,
+     "headings": 153,
+     "tables": 231,
+     "images": 336
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "configuration",
+   "title": "Configuration",
+   "nameKey": "configuration",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:21.442Z",
+     "note": "",
+     "sha256": "b3db1decbc539e6e204a3e681f064074fff9a9226e8b4838ce1fb4bd693a567b",
+     "sourceName": "14 Configuration.hwpx",
+     "sourceBytes": 8990622,
+     "headings": 91,
+     "tables": 104,
+     "images": 122
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "compliance",
+   "title": "Compliance",
+   "nameKey": "compliance",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:21.939Z",
+     "note": "",
+     "sha256": "78eae0ac09a867a6bf12a203797d9b6d8f3d8c5fa5c619bb2dfcb26ecfd691e3",
+     "sourceName": "15 Compliance.hwpx",
+     "sourceBytes": 766499,
+     "headings": 4,
+     "tables": 7,
+     "images": 7
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "peerreview",
+   "title": "PeerReview",
+   "nameKey": "peerreview",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:26.031Z",
+     "note": "",
+     "sha256": "23ea7ffcfb76e49683687c1da6ab5a4399b3530689816b5c2ead710f81695f23",
+     "sourceName": "16 PeerReview.hwpx",
+     "sourceBytes": 7957115,
+     "headings": 45,
+     "tables": 60,
+     "images": 83
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "source-repository",
+   "title": "Source Repository",
+   "nameKey": "source repository",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:28.979Z",
+     "note": "",
+     "sha256": "50e2a52dd1dd023e9d64e4ad40374caa895c4876cbfbd68ce58df07c1e2eb75d",
+     "sourceName": "17 Source Repository.hwpx",
+     "sourceBytes": 5486800,
+     "headings": 49,
+     "tables": 85,
+     "images": 112
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "kanban-board",
+   "title": "Kanban Board",
+   "nameKey": "kanban board",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:29.491Z",
+     "note": "",
+     "sha256": "f9ac87d60e7e12a927b567f7593da61bf477fee4a872a1d9f4966d8709d2f6d6",
+     "sourceName": "18 Kanban Board.hwpx",
+     "sourceBytes": 643177,
+     "headings": 11,
+     "tables": 15,
+     "images": 19
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "silo",
+   "title": "Silo",
+   "nameKey": "silo",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:30.736Z",
+     "note": "",
+     "sha256": "bd89d09fd5f7110f3873643e8c125ed528788ee417f3f4f8d6284ce5926e6992",
+     "sourceName": "19 Silo.hwpx",
+     "sourceBytes": 2967552,
+     "headings": 16,
+     "tables": 21,
+     "images": 29
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "workflow",
+   "title": "WORKFLOW",
+   "nameKey": "workflow",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:34.956Z",
+     "note": "",
+     "sha256": "07bf879813badbc9a42f2017b261e31f8a89ca139c623385e7fd03f8e6da01cb",
+     "sourceName": "20 WORKFLOW - 수정완료.hwpx",
+     "sourceBytes": 4430504,
+     "headings": 39,
+     "tables": 57,
+     "images": 79
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "project-setting",
+   "title": "Project Setting",
+   "nameKey": "project setting",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:40.079Z",
+     "note": "",
+     "sha256": "4612a9519359ea5c109a0652ba3d1f48d7dfc8e3e62986b144fcb9458dda953c",
+     "sourceName": "21 Project Setting.hwpx",
+     "sourceBytes": 5995026,
+     "headings": 87,
+     "tables": 90,
+     "images": 161
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "admin-setting",
+   "title": "Admin Setting",
+   "nameKey": "admin setting",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:41.697Z",
+     "note": "",
+     "sha256": "4cda90e08c9d340a42f70e758f19aea39ad62b51fc7d96ad157f20ac1da7f425",
+     "sourceName": "22 Admin Setting - 수정완료.hwpx",
+     "sourceBytes": 1937582,
+     "headings": 31,
+     "tables": 23,
+     "images": 38
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "calendar",
+   "title": "Calendar",
+   "nameKey": "calendar",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:43.798Z",
+     "note": "",
+     "sha256": "0475b80ac8fcf2ec585632a182120811a58cc5d37f54cee31153432613f934d2",
+     "sourceName": "Calendar.hwpx",
+     "sourceBytes": 968426,
+     "headings": 30,
+     "tables": 24,
+     "images": 17
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "global-storage",
+   "title": "Global Storage",
+   "nameKey": "global storage",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:44.985Z",
+     "note": "",
+     "sha256": "5e3f3cd7ae80729b2ff0a3bc699e87fbe310a454b6bc411fb8b1357900fad41d",
+     "sourceName": "Global Storage.hwpx",
+     "sourceBytes": 928208,
+     "headings": 21,
+     "tables": 40,
+     "images": 28
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "reminder",
+   "title": "Reminder",
+   "nameKey": "reminder",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:50:45.984Z",
+     "note": "",
+     "sha256": "508742f02ab2aa0a2f2be6dc0c5fd77b18f3d8e795a2b6769957ad388f6b6153",
+     "sourceName": "Reminder.hwpx",
+     "sourceBytes": 738816,
+     "headings": 16,
+     "tables": 20,
+     "images": 15
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "silkroad-user-guide-board",
+   "title": "User Guide - Board",
+   "nameKey": "silkroad_user_guide_board",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:52:30.148Z",
+     "note": "",
+     "sha256": "678b190fea4419cd374e417a8d24bc49b8e4a7329f586d3e3bc7df23986fb260",
+     "sourceName": "SILKROAD_USER_GUIDE_Board.hwpx",
+     "sourceBytes": 840091,
+     "headings": 22,
+     "tables": 31,
+     "images": 17
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "silkroad-user-guide-messenger",
+   "title": "User Guide - Messenger",
+   "nameKey": "silkroad_user_guide_messenger",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:52:31.399Z",
+     "note": "",
+     "sha256": "98b382e86d7cb8b06a901cbfabcf39323410f83190791a721358f0530c53ac90",
+     "sourceName": "SILKROAD_USER_GUIDE_Messenger.hwpx",
+     "sourceBytes": 1047902,
+     "headings": 36,
+     "tables": 51,
+     "images": 48
+    }
+   ],
+   "latest": "1.0"
+  },
+  {
+   "id": "silkroad-user-guide-project",
+   "title": "User Guide - Project",
+   "nameKey": "silkroad_user_guide_project",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-12T22:52:53.501Z",
+     "note": "",
+     "sha256": "060c520fee95fdd567fb7dc814588d30ced528ff9a04bd631277d5905167f9f2",
+     "sourceName": "SILKROAD_USER_GUIDE_Project.hwpx",
+     "sourceBytes": 1130949,
+     "headings": 24,
+     "tables": 41,
+     "images": 33
+    }
+   ],
+   "latest": "1.0"
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>메뉴얼 보기</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="btn menu-btn" id="menuBtn" aria-label="목차 열기" aria-expanded="false">☰ 목차</button>
+  <a class="brand" href="./">SILKROAD 메뉴얼</a>
+  <span class="title" id="docTitle"></span>
+</header>
+<div class="layout">
+  <nav class="side" id="side" aria-label="목차">
+    <input type="search" id="tocFilter" placeholder="목차 검색" aria-label="목차 검색">
+    <div class="toc" id="toc"></div>
+  </nav>
+  <main>
+    <section class="panel" id="panel" hidden>
+      <label for="verSel">버전</label>
+      <select id="verSel"></select>
+      <span class="vinfo" id="vinfo"></span>
+      <span class="grow"></span>
+      <button class="btn" id="histBtn" aria-expanded="false">버전 이력</button>
+      <a class="btn" id="dlSrc" download>원본(HWPX) 다운로드</a>
+    </section>
+    <section class="history" id="history" hidden></section>
+    <article class="doc" id="doc"><div class="empty">불러오는 중…</div></article>
+  </main>
+</div>
+<script src="viewer.js"></script>
+</body>
+</html>

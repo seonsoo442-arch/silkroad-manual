@@ -1,0 +1,19 @@
+{
+ "id": "traceability",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "08 Traceability.hwpx",
+ "sourceBytes": 6035606,
+ "sha256": "dd2d56bdd8e14c13bd9f845654e4777b63887780f451e1bb3d1d8d542bc2ec54",
+ "convertedAt": "2026-11-12T22:49:58.404Z",
+ "stats": {
+  "paragraphs": 166,
+  "headings": 21,
+  "tables": 24,
+  "images": 50,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 60103516,
+ "imageBytesAfter": 1202998
+}

@@ -1,0 +1,19 @@
+{
+ "id": "silkroad-user-guide-messenger",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "SILKROAD_USER_GUIDE_Messenger.hwpx",
+ "sourceBytes": 1047902,
+ "sha256": "98b382e86d7cb8b06a901cbfabcf39323410f83190791a721358f0530c53ac90",
+ "convertedAt": "2026-11-12T22:52:31.399Z",
+ "stats": {
+  "paragraphs": 476,
+  "headings": 36,
+  "tables": 51,
+  "images": 48,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 1015033,
+ "imageBytesAfter": 390826
+}

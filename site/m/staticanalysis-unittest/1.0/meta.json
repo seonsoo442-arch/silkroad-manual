@@ -1,0 +1,19 @@
+{
+ "id": "staticanalysis-unittest",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "12 StaticAnalysis_UnitTest.hwpx",
+ "sourceBytes": 9041524,
+ "sha256": "9be270ebf83f345fce937c4868b57934942f2f1da4564fbcc2fa72a785cd669c",
+ "convertedAt": "2026-11-12T22:50:13.357Z",
+ "stats": {
+  "paragraphs": 370,
+  "headings": 43,
+  "tables": 81,
+  "images": 95,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 89297280,
+ "imageBytesAfter": 2615386
+}

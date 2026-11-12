@@ -1,0 +1,19 @@
+{
+ "id": "sdocs",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "06 sDOCS.hwpx",
+ "sourceBytes": 3953229,
+ "sha256": "dda022dfb8f579fe4bd365751ff4f7451a16a80c160a24c0ce4146730fe1973e",
+ "convertedAt": "2026-11-09T21:55:40.003Z",
+ "stats": {
+  "paragraphs": 262,
+  "headings": 40,
+  "tables": 41,
+  "images": 36,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 51455852,
+ "imageBytesAfter": 1216012
+}

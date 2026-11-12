@@ -1,0 +1,19 @@
+{
+ "id": "project",
+ "version": "1.0",
+ "note": "샘플 최초 변환",
+ "sourceName": "01 Project - 수정완료.hwpx",
+ "sourceBytes": 1520736,
+ "sha256": "bd9c919f8b42d37613a5f47eff74265e8ea6267ad17a7a69a82ea237ce0a18c3",
+ "convertedAt": "2026-11-08T23:20:14.622Z",
+ "stats": {
+  "paragraphs": 135,
+  "headings": 20,
+  "tables": 24,
+  "images": 26,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 20291512,
+ "imageBytesAfter": 396106
+}

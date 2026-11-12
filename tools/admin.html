@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>메뉴얼 관리 (로컬)</title>
+<style>
+:root{--bg:#f6f7f9;--s:#fff;--t:#1d2433;--m:#667085;--l:#e3e6ec;--b:#1f5fbf;--bs:#e8f0fc;--ok:#1a7f4b;--er:#c0392b}
+@media (prefers-color-scheme:dark){:root{--bg:#12161d;--s:#1a202a;--t:#e6e9ef;--m:#9aa4b5;--l:#2b3342;--b:#6ea3f5;--bs:#1e2c45;--ok:#4cc38a;--er:#ff7b6b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font:15px/1.6 "Malgun Gothic",system-ui,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:22px;margin:0 0 4px}.sub{color:var(--m);margin:0 0 20px}
+.card{background:var(--s);border:1px solid var(--l);border-radius:12px;padding:16px 18px;margin-bottom:16px}
+.card h2{font-size:16px;margin:0 0 12px}
+.drop{border:2px dashed var(--l);border-radius:12px;padding:28px;text-align:center;color:var(--m);cursor:pointer}
+.drop.over,.drop:focus-visible{border-color:var(--b);background:var(--bs);outline:none}
+label{display:block;font-weight:600;margin:12px 0 4px;font-size:14px}
+input,select,textarea{width:100%;padding:8px 10px;border:1px solid var(--l);border-radius:8px;background:var(--bg);color:var(--t);font:inherit}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--b);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:600px){.row{grid-template-columns:1fr}}
+.btn{padding:9px 18px;border:0;border-radius:8px;background:var(--b);color:#fff;font:inherit;font-weight:600;cursor:pointer;margin-top:14px}
+.btn:disabled{opacity:.5;cursor:default}
+.btn.sec{background:transparent;color:var(--t);border:1px solid var(--l);padding:4px 10px;margin:0;font-weight:400}
+.msg{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--bs)}
+.msg.ok{color:var(--ok)}.msg.er{color:var(--er)}.msg.warn{color:var(--er);background:transparent;border:1px solid var(--er)}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--l)}th{color:var(--m)}
+small{color:var(--m)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>메뉴얼 관리 <small>(이 PC에서만 열림)</small></h1>
+  <p class="sub">수정한 HWPX를 올리면 변환해서 새 버전으로 등록합니다. 등록 후 <code>site/</code> 폴더를 배포하면 반영됩니다.</p>
+
+  <div class="card">
+    <h2>1. 파일 선택</h2>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="HWPX 파일 선택">HWPX 파일을 여기에 끌어놓거나 클릭해서 선택<br><small id="fileInfo"></small></div>
+    <input type="file" id="file" accept=".hwpx" hidden>
+    <div class="msg warn" id="dupMsg" hidden></div>
+  </div>
+
+  <div class="card" id="formCard" hidden>
+    <h2>2. 등록 정보</h2>
+    <div class="msg" id="matchMsg" hidden></div>
+    <div class="row">
+      <div><label for="manual">문서</label><select id="manual"></select></div>
+      <div><label for="version">버전</label><input id="version" maxlength="30" placeholder="예: 1.1"></div>
+    </div>
+    <div id="newBox" class="row" hidden>
+      <div><label for="newId">새 문서 ID (영문 소문자·숫자·-)</label><input id="newId" maxlength="40" placeholder="예: requirement"></div>
+      <div><label for="title">문서 제목</label><input id="title" maxlength="100" placeholder="예: 요구사항 관리"></div>
+    </div>
+    <label for="note">변경 내용</label>
+    <textarea id="note" rows="3" maxlength="500" placeholder="예: 4.2절 화면 캡처 교체, 오류 메시지 표 추가"></textarea>
+    <label><input type="checkbox" id="overwrite" style="width:auto"> 같은 버전이 있으면 덮어쓰기</label>
+    <button class="btn" id="go">변환하고 등록</button>
+    <div class="msg" id="result" hidden></div>
+  </div>
+
+  <div class="card">
+    <h2>등록된 문서</h2>
+    <div id="list"></div>
+  </div>
+</div>
+<script>
+const SESSION='__SESSION__';
+const $=(i)=>document.getElementById(i);
+let upload=null, manuals=[];
+const api=async(p,o={})=>{const r=await fetch(p,{...o,headers:{...(o.headers||{}),'X-Session':SESSION}});const j=await r.json();if(!r.ok)throw new Error(j.error||'오류');return j;};
+const mb=(n)=>(n/1048576).toFixed(1)+'MB';
+const show=(el,cls,txt)=>{el.hidden=false;el.className='msg '+cls;el.textContent=txt;};
+
+async function refresh(){
+  manuals=(await api('/api/manuals')).manuals;
+  const sel=$('manual');sel.textContent='';
+  for(const m of manuals){const o=document.createElement('option');o.value=m.id;o.textContent=`${m.title} (${m.id})`;sel.append(o);}
+  const n=document.createElement('option');n.value='__new';n.textContent='+ 새 문서 추가';sel.append(n);
+  onManual();
+  const list=$('list');list.textContent='';
+  if(!manuals.length){list.textContent='등록된 문서가 없습니다.';return;}
+  for(const m of manuals){
+    const h=document.createElement('strong');h.textContent=`${m.title} (${m.id})`;list.append(h);
+    const t=document.createElement('table');t.innerHTML='<thead><tr><th>버전</th><th>등록일시</th><th>변경 내용</th><th></th></tr></thead>';
+    const tb=document.createElement('tbody');
+    for(const v of m.versions){
+      const tr=document.createElement('tr');
+      for(const x of [v.version+(v.version===m.latest?' (최신)':''),new Date(v.date).toLocaleString('ko-KR'),v.note||'-']){const td=document.createElement('td');td.textContent=x;tr.append(td);}
+      const td=document.createElement('td');
+      const a=document.createElement('a');a.href=`http://127.0.0.1:5173/viewer.html?m=${m.id}&v=${encodeURIComponent(v.version)}`;a.target='_blank';a.textContent='열기 ';td.append(a);
+      const d=document.createElement('button');d.className='btn sec';d.textContent='삭제';
+      d.onclick=async()=>{if(!confirm(`${m.title} v${v.version} 을(를) 삭제할까요? 되돌릴 수 없습니다.`))return;try{await api('/api/delete',{method:'POST',body:JSON.stringify({id:m.id,version:v.version})});refresh();}catch(e){alert(e.message);}};
+      td.append(d);tr.append(td);tb.append(tr);
+    }
+    t.append(tb);list.append(t);
+  }
+}
+async function onManual(){
+  const id=$('manual').value;
+  $('newBox').hidden=id!=='__new';
+  if(id!=='__new'&&id){const s=await api('/api/suggest?id='+encodeURIComponent(id));$('version').value=s.version;}
+  else $('version').value='1.0';
+}
+$('manual').onchange=onManual;
+
+async function pick(f){
+  $('dupMsg').hidden=true;$('result').hidden=true;$('matchMsg').hidden=true;
+  if(!f)return;
+  if(!/\.hwpx$/i.test(f.name)){alert('HWPX 파일(.hwpx)만 올릴 수 있습니다. HWP는 한글에서 HWPX로 저장 후 올려 주세요.');return;}
+  $('fileInfo').textContent=`업로드 중… ${f.name} (${mb(f.size)})`;
+  try{
+    upload=await api('/api/upload',{method:'POST',headers:{'X-Filename':encodeURIComponent(f.name)},body:f});
+    $('fileInfo').textContent=`${upload.name} (${mb(upload.bytes)}) 준비됨`;
+    $('formCard').hidden=false;
+    if(upload.duplicates.length){const d=upload.duplicates[0];show($('dupMsg'),'warn',`이미 등록된 파일과 내용이 같습니다: ${d.title} v${d.version}. 수정 없이 다시 올린 파일이 아닌지 확인하세요.`);}
+    // 파일명으로 같은 문서인지 구분: 일치하면 그 문서의 다음 버전, 아니면 새 문서로 시작
+    const g=upload.guess;
+    if(g.matchId){
+      $('manual').value=g.matchId;
+      const m=manuals.find((x)=>x.id===g.matchId);
+      show($('matchMsg'),'',`파일명으로 "${m.title}" 문서의 새 버전으로 인식했습니다. 다른 문서라면 아래에서 바꾸세요.`);
+    }else{
+      $('manual').value='__new';
+      show($('matchMsg'),'',`기존 문서와 이름이 달라 새 문서로 등록합니다. (문서 ID·제목을 확인하세요)`);
+    }
+    await onManual();
+    if(!g.matchId){$('newId').value=g.newId;$('title').value=g.newTitle;$('version').value='1.0';}
+  }catch(e){upload=null;$('fileInfo').textContent='';show($('dupMsg'),'warn',e.message);}
+}
+const drop=$('drop'),file=$('file');
+drop.onclick=()=>file.click();
+drop.onkeydown=(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();file.click();}};
+file.onchange=()=>pick(file.files[0]);
+drop.ondragover=(e)=>{e.preventDefault();drop.classList.add('over');};
+drop.ondragleave=()=>drop.classList.remove('over');
+drop.ondrop=(e)=>{e.preventDefault();drop.classList.remove('over');pick(e.dataTransfer.files[0]);};
+
+$('go').onclick=async()=>{
+  if(!upload)return;
+  const isNew=$('manual').value==='__new';
+  const body={token:upload.token,id:isNew?$('newId').value.trim():$('manual').value,title:isNew?$('title').value.trim():'',version:$('version').value.trim(),note:$('note').value.trim(),overwrite:$('overwrite').checked};
+  $('go').disabled=true;show($('result'),'','변환 중입니다… (큰 파일은 몇 분 걸릴 수 있습니다)');
+  try{
+    const r=await api('/api/register',{method:'POST',body:JSON.stringify(body)});
+    const w=Object.keys(r.warnings).length?` / 미처리 요소: ${JSON.stringify(r.warnings)}`:'';
+    show($('result'),'ok',`등록 완료: ${r.id} v${r.version} — 제목 ${r.stats.headings}, 표 ${r.stats.tables}, 그림 ${r.stats.images}${r.stats.missingImages?` (누락 ${r.stats.missingImages})`:''}${w}`);
+    upload=null;$('fileInfo').textContent='';$('note').value='';file.value='';
+    refresh();
+  }catch(e){show($('result'),'er',e.message);}
+  $('go').disabled=false;
+};
+refresh().catch((e)=>{$('list').textContent=e.message;});
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+[
+ {
+  "id": "h1",
+  "level": 1,
+  "num": "1.",
+  "text": "리포지터리 (Repository)"
+ },
+ {
+  "id": "h2",
+  "level": 2,
+  "num": "1.1.",
+  "text": "개요"
+ },
+ {
+  "id": "h3",
+  "level": 2,
+  "num": "1.2.",
+  "text": "화면 구성"
+ },
+ {
+  "id": "h4",
+  "level": 3,
+  "num": "1.2.1.",
+  "text": "Repository 등록"
+ },
+ {
+  "id": "h5",
+  "level": 3,
+  "num": "1.2.2.",
+  "text": "변경 (Revision) 카드 설명"
+ },
+ {
+  "id": "h6",
+  "level": 3,
+  "num": "1.2.3.",
+  "text": "변경이력 확인하기"
+ },
+ {
+  "id": "h7",
+  "level": 3,
+  "num": "1.2.4.",
+  "text": "변경 이력 비교 뷰어 (Diff Viewer)"
+ },
+ {
+  "id": "h8",
+  "level": 3,
+  "num": "1.2.5.",
+  "text": "파일 뷰어 (File Viewer)"
+ },
+ {
+  "id": "h9",
+  "level": 3,
+  "num": "1.2.6.",
+  "text": "최신 소스파일 열람 (Current)"
+ },
+ {
+  "id": "h10",
+  "level": 3,
+  "num": "1.2.7.",
+  "text": "GIT Repository"
+ },
+ {
+  "id": "h11",
+  "level": 4,
+  "num": "1.2.7.1.",
+  "text": "노드 (Node) 설명"
+ }
+]

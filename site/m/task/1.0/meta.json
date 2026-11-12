@@ -1,0 +1,19 @@
+{
+ "id": "task",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "09 Task.hwpx",
+ "sourceBytes": 8188052,
+ "sha256": "179b9713483b00b73c070a93433d9b574dba96f97357c8dff20196abe06755f6",
+ "convertedAt": "2026-11-12T22:50:02.678Z",
+ "stats": {
+  "paragraphs": 467,
+  "headings": 52,
+  "tables": 87,
+  "images": 106,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 92691200,
+ "imageBytesAfter": 2545336
+}

@@ -1,0 +1,19 @@
+{
+ "id": "project-setting",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "21 Project Setting.hwpx",
+ "sourceBytes": 5995026,
+ "sha256": "4612a9519359ea5c109a0652ba3d1f48d7dfc8e3e62986b144fcb9458dda953c",
+ "convertedAt": "2026-11-12T22:50:40.079Z",
+ "stats": {
+  "paragraphs": 695,
+  "headings": 87,
+  "tables": 90,
+  "images": 161,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 124084790,
+ "imageBytesAfter": 2601736
+}

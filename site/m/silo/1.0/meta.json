@@ -1,0 +1,19 @@
+{
+ "id": "silo",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "19 Silo.hwpx",
+ "sourceBytes": 2967552,
+ "sha256": "bd89d09fd5f7110f3873643e8c125ed528788ee417f3f4f8d6284ce5926e6992",
+ "convertedAt": "2026-11-12T22:50:30.736Z",
+ "stats": {
+  "paragraphs": 119,
+  "headings": 16,
+  "tables": 21,
+  "images": 29,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 27063214,
+ "imageBytesAfter": 605428
+}

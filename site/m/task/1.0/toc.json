@@ -1,0 +1,314 @@
+[
+ {
+  "id": "h1",
+  "level": 1,
+  "num": "1.",
+  "text": "Task Management 개요"
+ },
+ {
+  "id": "h2",
+  "level": 2,
+  "num": "1.1",
+  "text": "협업관리 시스템 화면 구성"
+ },
+ {
+  "id": "h3",
+  "level": 2,
+  "num": "1.2",
+  "text": "업무(Task) 및 이벤트(Milestone) 생성"
+ },
+ {
+  "id": "h4",
+  "level": 3,
+  "num": "1.2.1",
+  "text": "업무 생성(New Task)"
+ },
+ {
+  "id": "h5",
+  "level": 4,
+  "num": "1.2.1.1",
+  "text": "보조 업무 생성(New Sub Task)"
+ },
+ {
+  "id": "h6",
+  "level": 3,
+  "num": "1.2.2",
+  "text": "마일스톤 생성 (New Milestone)"
+ },
+ {
+  "id": "h7",
+  "level": 2,
+  "num": "1.3",
+  "text": "업무 편집"
+ },
+ {
+  "id": "h8",
+  "level": 3,
+  "num": "1.3.1",
+  "text": "업무 이름 변경(Rename)"
+ },
+ {
+  "id": "h9",
+  "level": 3,
+  "num": "1.3.2",
+  "text": "업무 담당자 지정(Assigned)"
+ },
+ {
+  "id": "h10",
+  "level": 3,
+  "num": "1.3.3",
+  "text": "업무 진행률 설정(Progress, %)"
+ },
+ {
+  "id": "h11",
+  "level": 3,
+  "num": "1.3.4",
+  "text": "업무 총 수행 기간 설정(Duration)"
+ },
+ {
+  "id": "h12",
+  "level": 4,
+  "num": "1.3.4.1",
+  "text": "업무 시작일 설정(Start)"
+ },
+ {
+  "id": "h13",
+  "level": 4,
+  "num": "1.3.4.2",
+  "text": "업무 종료일 설정(Finish)"
+ },
+ {
+  "id": "h14",
+  "level": 4,
+  "num": "1.3.4.3",
+  "text": "업무 중요도 설정(Priority)"
+ },
+ {
+  "id": "h15",
+  "level": 4,
+  "num": "1.3.4.4",
+  "text": "업무 색상 설정(Color)"
+ },
+ {
+  "id": "h16",
+  "level": 4,
+  "num": "1.3.4.5",
+  "text": "업무 체크리스트 설정(Check List)"
+ },
+ {
+  "id": "h17",
+  "level": 4,
+  "num": "1.3.4.6",
+  "text": "이메일 알림"
+ },
+ {
+  "id": "h18",
+  "level": 4,
+  "num": "1.3.4.7",
+  "text": "Convert to Task"
+ },
+ {
+  "id": "h19",
+  "level": 4,
+  "num": "1.3.4.8",
+  "text": "업무 단계 조절(Outdent & Indent)"
+ },
+ {
+  "id": "h20",
+  "level": 4,
+  "num": "1.3.4.9",
+  "text": "업무 삭제(Delete)"
+ },
+ {
+  "id": "h21",
+  "level": 3,
+  "num": "1.3.5",
+  "text": "의존도(Predecessors)"
+ },
+ {
+  "id": "h22",
+  "level": 4,
+  "num": "1.3.5.1",
+  "text": "의존도 설정"
+ },
+ {
+  "id": "h23",
+  "level": 4,
+  "num": "1.3.5.2",
+  "text": "의존도 편집"
+ },
+ {
+  "id": "h24",
+  "level": 4,
+  "num": "1.3.5.3",
+  "text": "의존도 관계 수식"
+ },
+ {
+  "id": "h25",
+  "level": 4,
+  "num": "1.3.5.4",
+  "text": "의존도 삭제"
+ },
+ {
+  "id": "h26",
+  "level": 3,
+  "num": "1.3.6",
+  "text": "업무 현황 파악"
+ },
+ {
+  "id": "h27",
+  "level": 4,
+  "num": "1.3.6.1",
+  "text": "임계경로(Critical Path)"
+ },
+ {
+  "id": "h28",
+  "level": 4,
+  "num": "1.3.6.2",
+  "text": "Filter"
+ },
+ {
+  "id": "h29",
+  "level": 4,
+  "num": "1.3.6.3",
+  "text": "라벨(Label)"
+ },
+ {
+  "id": "h30",
+  "level": 4,
+  "num": "1.3.6.4",
+  "text": "베이스라인(Baseline)"
+ },
+ {
+  "id": "h31",
+  "level": 4,
+  "num": "1.3.6.5",
+  "text": "베이스라인 삭제(Baseline Delete)"
+ },
+ {
+  "id": "h32",
+  "level": 3,
+  "num": "1.3.7",
+  "text": "자료 출력"
+ },
+ {
+  "id": "h33",
+  "level": 4,
+  "num": "1.3.7.1",
+  "text": "현황 보고서(Progress Status Report)"
+ },
+ {
+  "id": "h34",
+  "level": 4,
+  "num": "1.3.7.2",
+  "text": "불러오기(Import : MS-project)"
+ },
+ {
+  "id": "h35",
+  "level": 4,
+  "num": "1.3.7.3",
+  "text": "내보내기(Export : Excel-WBS 기반)"
+ },
+ {
+  "id": "h36",
+  "level": 3,
+  "num": "1.3.8",
+  "text": "Workflow"
+ },
+ {
+  "id": "h37",
+  "level": 4,
+  "num": "1.3.8.1",
+  "text": "워크플로우 진행"
+ },
+ {
+  "id": "h38",
+  "level": 4,
+  "num": "1.3.8.2",
+  "text": "업무 워크플로우 표시 확인"
+ },
+ {
+  "id": "h39",
+  "level": 3,
+  "num": "1.3.9",
+  "text": "Calendar"
+ },
+ {
+  "id": "h40",
+  "level": 4,
+  "num": "1.3.9.1",
+  "text": "Calendar 생성"
+ },
+ {
+  "id": "h41",
+  "level": 4,
+  "num": "1.3.9.2",
+  "text": "업무 수행 시간 설정"
+ },
+ {
+  "id": "h42",
+  "level": 4,
+  "num": "1.3.9.3",
+  "text": "일(Day), 주(Week) 예외(Override)"
+ },
+ {
+  "id": "h43",
+  "level": 3,
+  "num": "1.3.10",
+  "text": "Timeline View"
+ },
+ {
+  "id": "h44",
+  "level": 4,
+  "num": "1.3.10.1",
+  "text": "화면구성"
+ },
+ {
+  "id": "h45",
+  "level": 4,
+  "num": "1.3.10.2",
+  "text": "타임라인 표시 업무 설정"
+ },
+ {
+  "id": "h46",
+  "level": 3,
+  "num": "1.3.11",
+  "text": "Resource View"
+ },
+ {
+  "id": "h47",
+  "level": 3,
+  "num": "1.3.12",
+  "text": "Histogram View"
+ },
+ {
+  "id": "h48",
+  "level": 3,
+  "num": "1.3.13",
+  "text": "Gantt Chart 편의기능"
+ },
+ {
+  "id": "h49",
+  "level": 4,
+  "num": "1.3.13.1",
+  "text": "업무 위치 이동 (Move to Task)"
+ },
+ {
+  "id": "h50",
+  "level": 4,
+  "num": "1.3.13.2",
+  "text": "다수 업무 선택 시 메뉴"
+ },
+ {
+  "id": "h51",
+  "level": 4,
+  "num": "1.3.13.3",
+  "text": "Gantt Chart View 단계 조절 도구"
+ },
+ {
+  "id": "h52",
+  "level": 2,
+  "num": "1.4",
+  "text": "오류메시지 목록"
+ }
+]

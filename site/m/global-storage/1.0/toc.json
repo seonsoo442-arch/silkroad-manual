@@ -1,0 +1,128 @@
+[
+ {
+  "id": "h1",
+  "level": 1,
+  "num": "1.",
+  "text": "Global Storage"
+ },
+ {
+  "id": "h2",
+  "level": 2,
+  "num": "1.1",
+  "text": "Global Storage 화면 구성"
+ },
+ {
+  "id": "h3",
+  "level": 3,
+  "num": "1.1.1",
+  "text": "툴바 버튼"
+ },
+ {
+  "id": "h4",
+  "level": 3,
+  "num": "1.1.2",
+  "text": "우클릭(컨텍스트) 메뉴"
+ },
+ {
+  "id": "h5",
+  "level": 2,
+  "num": "1.2",
+  "text": "폴더 추가(Add Folder)"
+ },
+ {
+  "id": "h6",
+  "level": 2,
+  "num": "1.3",
+  "text": "파일 업로드(Add File)"
+ },
+ {
+  "id": "h7",
+  "level": 2,
+  "num": "1.4",
+  "text": "파일 미리보기(Preview)"
+ },
+ {
+  "id": "h8",
+  "level": 3,
+  "num": "1.4.1",
+  "text": "소스코드 뷰어"
+ },
+ {
+  "id": "h9",
+  "level": 3,
+  "num": "1.4.2",
+  "text": "이미지 뷰어"
+ },
+ {
+  "id": "h10",
+  "level": 3,
+  "num": "1.4.3",
+  "text": "미리보기를 지원하지 않는 파일"
+ },
+ {
+  "id": "h11",
+  "level": 2,
+  "num": "1.5",
+  "text": "파일 리비전(Revision)"
+ },
+ {
+  "id": "h12",
+  "level": 2,
+  "num": "1.6",
+  "text": "리비전 이력(Revision History)"
+ },
+ {
+  "id": "h13",
+  "level": 2,
+  "num": "1.7",
+  "text": "상세 정보(View Details)"
+ },
+ {
+  "id": "h14",
+  "level": 2,
+  "num": "1.8",
+  "text": "폴더/파일 편집(Edit)"
+ },
+ {
+  "id": "h15",
+  "level": 2,
+  "num": "1.9",
+  "text": "다운로드(Download)"
+ },
+ {
+  "id": "h16",
+  "level": 2,
+  "num": "1.10",
+  "text": "폴더/파일 이동(Move)"
+ },
+ {
+  "id": "h17",
+  "level": 2,
+  "num": "1.11",
+  "text": "폴더/파일 삭제(Delete)"
+ },
+ {
+  "id": "h18",
+  "level": 2,
+  "num": "1.12",
+  "text": "권한 설정(Permissions)"
+ },
+ {
+  "id": "h19",
+  "level": 2,
+  "num": "1.13",
+  "text": "검색(Search)"
+ },
+ {
+  "id": "h20",
+  "level": 2,
+  "num": "1.14",
+  "text": "검색 인덱스 재생성(Reindexing)"
+ },
+ {
+  "id": "h21",
+  "level": 2,
+  "num": "1.15",
+  "text": "오류메시지 목록"
+ }
+]

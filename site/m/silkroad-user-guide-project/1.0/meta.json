@@ -1,0 +1,19 @@
+{
+ "id": "silkroad-user-guide-project",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "SILKROAD_USER_GUIDE_Project.hwpx",
+ "sourceBytes": 1130949,
+ "sha256": "060c520fee95fdd567fb7dc814588d30ced528ff9a04bd631277d5905167f9f2",
+ "convertedAt": "2026-11-12T22:52:53.501Z",
+ "stats": {
+  "paragraphs": 368,
+  "headings": 24,
+  "tables": 41,
+  "images": 33,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 937821,
+ "imageBytesAfter": 245120
+}

@@ -1,0 +1,19 @@
+{
+ "id": "admin-setting",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "22 Admin Setting - 수정완료.hwpx",
+ "sourceBytes": 1937582,
+ "sha256": "4cda90e08c9d340a42f70e758f19aea39ad62b51fc7d96ad157f20ac1da7f425",
+ "convertedAt": "2026-11-12T22:50:41.697Z",
+ "stats": {
+  "paragraphs": 213,
+  "headings": 31,
+  "tables": 23,
+  "images": 38,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 32120766,
+ "imageBytesAfter": 535428
+}

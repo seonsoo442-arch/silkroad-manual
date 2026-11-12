@@ -1,0 +1,19 @@
+{
+ "id": "reminder",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "Reminder.hwpx",
+ "sourceBytes": 738816,
+ "sha256": "508742f02ab2aa0a2f2be6dc0c5fd77b18f3d8e795a2b6769957ad388f6b6153",
+ "convertedAt": "2026-11-12T22:50:45.984Z",
+ "stats": {
+  "paragraphs": 166,
+  "headings": 16,
+  "tables": 20,
+  "images": 15,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 727316,
+ "imageBytesAfter": 394420
+}

@@ -1,0 +1,548 @@
+[
+ {
+  "id": "h1",
+  "level": 1,
+  "num": "1.",
+  "text": "Configuration Management 개요"
+ },
+ {
+  "id": "h2",
+  "level": 2,
+  "num": "1.1.",
+  "text": "베이스라인 (Baseline) 관리"
+ },
+ {
+  "id": "h3",
+  "level": 3,
+  "num": "1.1.1.",
+  "text": "화면 구성"
+ },
+ {
+  "id": "h4",
+  "level": 3,
+  "num": "1.1.2.",
+  "text": "베이스라인 관리"
+ },
+ {
+  "id": "h5",
+  "level": 4,
+  "num": "1.1.2.1.",
+  "text": "베이스라인 생성 (New Baseline)"
+ },
+ {
+  "id": "h6",
+  "level": 4,
+  "num": "1.1.2.2.",
+  "text": "베이스라인 수정"
+ },
+ {
+  "id": "h7",
+  "level": 4,
+  "num": "1.1.2.3.",
+  "text": "베이스라인 삭제"
+ },
+ {
+  "id": "h8",
+  "level": 3,
+  "num": "1.1.3.",
+  "text": "베이스라인 버전 관리"
+ },
+ {
+  "id": "h9",
+  "level": 4,
+  "num": "1.1.3.1.",
+  "text": "버전 생성 (New Version)"
+ },
+ {
+  "id": "h10",
+  "level": 4,
+  "num": "1.1.3.2.",
+  "text": "버전 수정"
+ },
+ {
+  "id": "h11",
+  "level": 4,
+  "num": "1.1.3.3.",
+  "text": "버전 삭제"
+ },
+ {
+  "id": "h12",
+  "level": 3,
+  "num": "1.1.4.",
+  "text": "커버리지 (History)"
+ },
+ {
+  "id": "h13",
+  "level": 3,
+  "num": "1.1.5.",
+  "text": "Configuration Item 관리"
+ },
+ {
+  "id": "h14",
+  "level": 4,
+  "num": "1.1.5.1.",
+  "text": "Configuration Item 등록 (Add Item)"
+ },
+ {
+  "id": "h15",
+  "level": 4,
+  "num": "1.1.5.2.",
+  "text": "소스 리비전 등록 (Add Source)"
+ },
+ {
+  "id": "h16",
+  "level": 4,
+  "num": "1.1.5.3.",
+  "text": "Configuration Item 수정"
+ },
+ {
+  "id": "h17",
+  "level": 5,
+  "num": "1.1.5.3.1.",
+  "text": "Configuration Item 버전 변경"
+ },
+ {
+  "id": "h18",
+  "level": 4,
+  "num": "1.1.5.4.",
+  "text": "Configuration Item 삭제 (Delete)"
+ },
+ {
+  "id": "h19",
+  "level": 5,
+  "num": "1.1.5.4.1.",
+  "text": "Configuration Item이 Add() 상태인 경우"
+ },
+ {
+  "id": "h20",
+  "level": 5,
+  "num": "1.1.5.4.2.",
+  "text": "Configuration Item이 Not Modify(), Modify() 상태인 경우"
+ },
+ {
+  "id": "h21",
+  "level": 4,
+  "num": "1.1.5.5.",
+  "text": "Configuration Item 복구 (Restore)"
+ },
+ {
+  "id": "h22",
+  "level": 4,
+  "num": "1.1.5.6.",
+  "text": "Configuration Item 기타 기능"
+ },
+ {
+  "id": "h23",
+  "level": 5,
+  "num": "1.1.5.6.1.",
+  "text": "Configuration Item 다운로드 (Download Items)"
+ },
+ {
+  "id": "h24",
+  "level": 5,
+  "num": "1.1.5.6.2.",
+  "text": "Configuration Item 목록 내보내기"
+ },
+ {
+  "id": "h25",
+  "level": 6,
+  "num": "1.1.5.6.2.1.",
+  "text": "Export"
+ },
+ {
+  "id": "h26",
+  "level": 6,
+  "num": "1.1.5.6.2.2.",
+  "text": "Export(+checkSum)"
+ },
+ {
+  "id": "h27",
+  "level": 5,
+  "num": "1.1.5.6.3.",
+  "text": "Filter (필터)"
+ },
+ {
+  "id": "h28",
+  "level": 5,
+  "num": "1.1.5.6.4.",
+  "text": "Copy Project"
+ },
+ {
+  "id": "h29",
+  "level": 5,
+  "num": "1.1.5.6.5.",
+  "text": "Latest Version"
+ },
+ {
+  "id": "h30",
+  "level": 5,
+  "num": "1.1.5.6.6.",
+  "text": "Diff(Baseline Version 비교)"
+ },
+ {
+  "id": "h31",
+  "level": 6,
+  "num": "1.1.5.6.6.1.",
+  "text": "베이스라인 복구 (Rollback)"
+ },
+ {
+  "id": "h32",
+  "level": 4,
+  "num": "1.1.5.7.",
+  "text": "Workflow (베이스라인 승인 프로세스)"
+ },
+ {
+  "id": "h33",
+  "level": 4,
+  "num": "1.1.5.8.",
+  "text": "Change Request (변경요청서 관리)"
+ },
+ {
+  "id": "h34",
+  "level": 5,
+  "num": "1.1.5.8.1.",
+  "text": "Current Change Request"
+ },
+ {
+  "id": "h35",
+  "level": 5,
+  "num": "1.1.5.8.2.",
+  "text": "Applied change Request"
+ },
+ {
+  "id": "h36",
+  "level": 2,
+  "num": "1.2.",
+  "text": "변경요청서 (Change Request, CR) 관리"
+ },
+ {
+  "id": "h37",
+  "level": 3,
+  "num": "1.2.1.",
+  "text": "Change Request 목록 관리"
+ },
+ {
+  "id": "h38",
+  "level": 4,
+  "num": "1.2.1.1.",
+  "text": "화면 구성"
+ },
+ {
+  "id": "h39",
+  "level": 4,
+  "num": "1.2.1.2.",
+  "text": "Change Request 목록 관리"
+ },
+ {
+  "id": "h40",
+  "level": 5,
+  "num": "1.2.1.2.1.",
+  "text": "Change Request 생성"
+ },
+ {
+  "id": "h41",
+  "level": 5,
+  "num": "1.2.1.2.2.",
+  "text": "Change Request 생성(폴더 내)"
+ },
+ {
+  "id": "h42",
+  "level": 5,
+  "num": "1.2.1.2.3.",
+  "text": "Change Request 삭제"
+ },
+ {
+  "id": "h43",
+  "level": 5,
+  "num": "1.2.1.2.4.",
+  "text": "Folder 생성"
+ },
+ {
+  "id": "h44",
+  "level": 5,
+  "num": "1.2.1.2.5.",
+  "text": "Folder 명 수정"
+ },
+ {
+  "id": "h45",
+  "level": 5,
+  "num": "1.2.1.2.6.",
+  "text": "Folder 삭제"
+ },
+ {
+  "id": "h46",
+  "level": 5,
+  "num": "1.2.1.2.7.",
+  "text": "하위 Folder 생성"
+ },
+ {
+  "id": "h47",
+  "level": 5,
+  "num": "1.2.1.2.8.",
+  "text": "목록 펼치기/접기(Expand All/Collapse All)"
+ },
+ {
+  "id": "h48",
+  "level": 4,
+  "num": "1.2.1.3.",
+  "text": "Change Request 목록 내 이동"
+ },
+ {
+  "id": "h49",
+  "level": 5,
+  "num": "1.2.1.3.1.",
+  "text": "Drag & Drop"
+ },
+ {
+  "id": "h50",
+  "level": 5,
+  "num": "1.2.1.3.2.",
+  "text": "Oder Setting"
+ },
+ {
+  "id": "h51",
+  "level": 5,
+  "num": "1.2.1.3.3.",
+  "text": "Refresh"
+ },
+ {
+  "id": "h52",
+  "level": 4,
+  "num": "1.2.1.4.",
+  "text": "Settings"
+ },
+ {
+  "id": "h53",
+  "level": 4,
+  "num": "1.2.1.5.",
+  "text": "Export"
+ },
+ {
+  "id": "h54",
+  "level": 4,
+  "num": "1.2.1.6.",
+  "text": "Filter (필터)"
+ },
+ {
+  "id": "h55",
+  "level": 3,
+  "num": "1.2.2.",
+  "text": "Change Request 관리"
+ },
+ {
+  "id": "h56",
+  "level": 4,
+  "num": "1.2.2.1.",
+  "text": "Change Request 화면 구성"
+ },
+ {
+  "id": "h57",
+  "level": 4,
+  "num": "1.2.2.2.",
+  "text": "Request 탭"
+ },
+ {
+  "id": "h58",
+  "level": 5,
+  "num": "1.2.2.2.1.",
+  "text": "Request 작성"
+ },
+ {
+  "id": "h59",
+  "level": 4,
+  "num": "1.2.2.3.",
+  "text": "Review 탭"
+ },
+ {
+  "id": "h60",
+  "level": 5,
+  "num": "1.2.2.3.1.",
+  "text": "Review 작성"
+ },
+ {
+  "id": "h61",
+  "level": 5,
+  "num": "1.2.2.3.2.",
+  "text": "Review 확인"
+ },
+ {
+  "id": "h62",
+  "level": 5,
+  "num": "1.2.2.3.3.",
+  "text": "Review 삭제"
+ },
+ {
+  "id": "h63",
+  "level": 4,
+  "num": "1.2.2.4.",
+  "text": "Approval 탭"
+ },
+ {
+  "id": "h64",
+  "level": 5,
+  "num": "1.2.2.4.1.",
+  "text": "Approval 작성"
+ },
+ {
+  "id": "h65",
+  "level": 5,
+  "num": "1.2.2.4.2.",
+  "text": "변경 수행 업무 (Change Order, CO) 설정"
+ },
+ {
+  "id": "h66",
+  "level": 4,
+  "num": "1.2.2.5.",
+  "text": "Change Item 탭"
+ },
+ {
+  "id": "h67",
+  "level": 5,
+  "num": "1.2.2.5.1.",
+  "text": "Change Item 등록"
+ },
+ {
+  "id": "h68",
+  "level": 5,
+  "num": "1.2.2.5.2.",
+  "text": "Change Item 삭제"
+ },
+ {
+  "id": "h69",
+  "level": 5,
+  "num": "1.2.2.5.3.",
+  "text": "Change Item 다운로드"
+ },
+ {
+  "id": "h70",
+  "level": 5,
+  "num": "1.2.2.5.4.",
+  "text": "Change Item Workflow"
+ },
+ {
+  "id": "h71",
+  "level": 6,
+  "num": "1.2.2.5.4.1.",
+  "text": "Change Item Workflow 설정"
+ },
+ {
+  "id": "h72",
+  "level": 6,
+  "num": "1.2.2.5.4.2.",
+  "text": "Change Item Workflow 진행"
+ },
+ {
+  "id": "h73",
+  "level": 6,
+  "num": "1.2.2.5.4.3.",
+  "text": "Change Item 수정"
+ },
+ {
+  "id": "h74",
+  "level": 5,
+  "num": "1.2.2.5.5.",
+  "text": "Completed Change Item"
+ },
+ {
+  "id": "h75",
+  "level": 5,
+  "num": "1.2.2.5.6.",
+  "text": "Completed Change Item 다운로드"
+ },
+ {
+  "id": "h76",
+  "level": 4,
+  "num": "1.2.2.6.",
+  "text": "Up/Down stream 탭"
+ },
+ {
+  "id": "h77",
+  "level": 5,
+  "num": "1.2.2.6.1.",
+  "text": "추적성 연결"
+ },
+ {
+  "id": "h78",
+  "level": 5,
+  "num": "1.2.2.6.2.",
+  "text": "Change Request 추적성 뷰"
+ },
+ {
+  "id": "h79",
+  "level": 3,
+  "num": "1.2.3.",
+  "text": "Change Request Workflow (변경요청서 승인 프로세스)"
+ },
+ {
+  "id": "h80",
+  "level": 2,
+  "num": "1.3.",
+  "text": "형상통제위원회 (Configuration Control Board, CCB) 관리"
+ },
+ {
+  "id": "h81",
+  "level": 3,
+  "num": "1.3.1.",
+  "text": "화면 구성"
+ },
+ {
+  "id": "h82",
+  "level": 3,
+  "num": "1.3.2.",
+  "text": "형상 통제 위원회 관리 (New CCB)"
+ },
+ {
+  "id": "h83",
+  "level": 4,
+  "num": "1.3.2.1.",
+  "text": "CCB 생성"
+ },
+ {
+  "id": "h84",
+  "level": 4,
+  "num": "1.3.2.2.",
+  "text": "CCB 조회"
+ },
+ {
+  "id": "h85",
+  "level": 5,
+  "num": "1.3.2.2.1.",
+  "text": "CCB 정보 조회"
+ },
+ {
+  "id": "h86",
+  "level": 5,
+  "num": "1.3.2.2.2.",
+  "text": "Change Request및 Change Order(CO) 진행상황 확인"
+ },
+ {
+  "id": "h87",
+  "level": 4,
+  "num": "1.3.2.3.",
+  "text": "CCB 삭제"
+ },
+ {
+  "id": "h88",
+  "level": 3,
+  "num": "1.3.3.",
+  "text": "Export"
+ },
+ {
+  "id": "h89",
+  "level": 3,
+  "num": "1.3.4.",
+  "text": "Filter (필터)"
+ },
+ {
+  "id": "h90",
+  "level": 3,
+  "num": "1.3.5.",
+  "text": "CCB Workflow"
+ },
+ {
+  "id": "h91",
+  "level": 2,
+  "num": "1.4.",
+  "text": "오류메시지 목록"
+ }
+]

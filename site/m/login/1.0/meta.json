@@ -1,0 +1,19 @@
+{
+ "id": "login",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "02 Login.hwpx",
+ "sourceBytes": 293201,
+ "sha256": "59e3224b13d9a25ad9bfc6957124796fc17eb7467d608de2466292d218d09208",
+ "convertedAt": "2026-11-09T21:54:49.193Z",
+ "stats": {
+  "paragraphs": 89,
+  "headings": 7,
+  "tables": 11,
+  "images": 10,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 7277796,
+ "imageBytesAfter": 59698
+}

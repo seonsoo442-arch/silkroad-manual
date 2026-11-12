@@ -1,0 +1,19 @@
+{
+ "id": "kanban-board",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "18 Kanban Board.hwpx",
+ "sourceBytes": 643177,
+ "sha256": "f9ac87d60e7e12a927b567f7593da61bf477fee4a872a1d9f4966d8709d2f6d6",
+ "convertedAt": "2026-11-12T22:50:29.491Z",
+ "stats": {
+  "paragraphs": 87,
+  "headings": 11,
+  "tables": 15,
+  "images": 19,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 11354618,
+ "imageBytesAfter": 217516
+}

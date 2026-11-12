@@ -1,0 +1,19 @@
+{
+ "id": "workflow",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "20 WORKFLOW - 수정완료.hwpx",
+ "sourceBytes": 4430504,
+ "sha256": "07bf879813badbc9a42f2017b261e31f8a89ca139c623385e7fd03f8e6da01cb",
+ "convertedAt": "2026-11-12T22:50:34.956Z",
+ "stats": {
+  "paragraphs": 508,
+  "headings": 39,
+  "tables": 57,
+  "images": 79,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 98899609,
+ "imageBytesAfter": 2089542
+}

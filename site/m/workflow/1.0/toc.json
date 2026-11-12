@@ -1,0 +1,236 @@
+[
+ {
+  "id": "h1",
+  "level": 1,
+  "num": "1.",
+  "text": "Workflow 개요"
+ },
+ {
+  "id": "h2",
+  "level": 2,
+  "num": "1.1",
+  "text": "워크플로우 템플릿"
+ },
+ {
+  "id": "h3",
+  "level": 3,
+  "num": "1.1.1",
+  "text": "워크플로우 템플릿 목록"
+ },
+ {
+  "id": "h4",
+  "level": 1,
+  "num": "2.",
+  "text": "Work Assignment 워크플로우 모델링"
+ },
+ {
+  "id": "h5",
+  "level": 2,
+  "num": "2.1",
+  "text": "워크플로우 화면 구성(Flow탭)"
+ },
+ {
+  "id": "h6",
+  "level": 3,
+  "num": "2.1.1",
+  "text": "워크플로우 창"
+ },
+ {
+  "id": "h7",
+  "level": 3,
+  "num": "2.1.2",
+  "text": "워크플로우 상태값 설정 (Process Status Settings)"
+ },
+ {
+  "id": "h8",
+  "level": 2,
+  "num": "2.2",
+  "text": "워크플로우 생성"
+ },
+ {
+  "id": "h9",
+  "level": 3,
+  "num": "2.2.1",
+  "text": "Add Workflow 창"
+ },
+ {
+  "id": "h10",
+  "level": 2,
+  "num": "2.3",
+  "text": "워크플로우 디자인"
+ },
+ {
+  "id": "h11",
+  "level": 3,
+  "num": "2.3.1",
+  "text": "Activity 생성"
+ },
+ {
+  "id": "h12",
+  "level": 4,
+  "num": "2.3.1.1",
+  "text": "Activity 창"
+ },
+ {
+  "id": "h13",
+  "level": 3,
+  "num": "2.3.2",
+  "text": "Flow 생성"
+ },
+ {
+  "id": "h14",
+  "level": 4,
+  "num": "2.3.2.1",
+  "text": "Flow 창"
+ },
+ {
+  "id": "h15",
+  "level": 3,
+  "num": "2.3.3",
+  "text": "담당자(Participant) 설정"
+ },
+ {
+  "id": "h16",
+  "level": 4,
+  "num": "2.3.3.1",
+  "text": "Participant 창"
+ },
+ {
+  "id": "h17",
+  "level": 5,
+  "num": "2.3.3.1.1",
+  "text": "가변성 필드 목록"
+ },
+ {
+  "id": "h18",
+  "level": 3,
+  "num": "2.3.4",
+  "text": "워크플로우 매크로"
+ },
+ {
+  "id": "h19",
+  "level": 4,
+  "num": "2.3.4.1",
+  "text": "매크로 설정"
+ },
+ {
+  "id": "h20",
+  "level": 2,
+  "num": "2.4",
+  "text": "워크플로우 적용"
+ },
+ {
+  "id": "h21",
+  "level": 3,
+  "num": "2.4.1",
+  "text": "Settings 모듈 연계 - 워크플로우 적용"
+ },
+ {
+  "id": "h22",
+  "level": 3,
+  "num": "2.4.2",
+  "text": "Default 워크플로우 설정"
+ },
+ {
+  "id": "h23",
+  "level": 1,
+  "num": "3.",
+  "text": "워크플로우 실행"
+ },
+ {
+  "id": "h24",
+  "level": 2,
+  "num": "3.1",
+  "text": "워크플로우 실행 절차"
+ },
+ {
+  "id": "h25",
+  "level": 3,
+  "num": "3.1.1",
+  "text": "Activate Workflow 자동 실행 메뉴 현황"
+ },
+ {
+  "id": "h26",
+  "level": 2,
+  "num": "3.2",
+  "text": "워크플로우 실행 예시 (Configuration 모듈 Change Request)"
+ },
+ {
+  "id": "h27",
+  "level": 3,
+  "num": "3.2.1",
+  "text": "Configuration - Baseline과 Baseline Version 생성"
+ },
+ {
+  "id": "h28",
+  "level": 3,
+  "num": "3.2.2",
+  "text": "Change Request 생성"
+ },
+ {
+  "id": "h29",
+  "level": 3,
+  "num": "3.2.3",
+  "text": "Change Request 워크플로우 구성"
+ },
+ {
+  "id": "h30",
+  "level": 3,
+  "num": "3.2.4",
+  "text": "워크플로우 실행"
+ },
+ {
+  "id": "h31",
+  "level": 3,
+  "num": "3.2.5",
+  "text": "서브 워크플로우(Sub Workflow) - Sequential Flow 인 경우"
+ },
+ {
+  "id": "h32",
+  "level": 3,
+  "num": "3.2.6",
+  "text": "워크플로우 리셋"
+ },
+ {
+  "id": "h33",
+  "level": 1,
+  "num": "4.",
+  "text": "Work Approval 워크플로우"
+ },
+ {
+  "id": "h34",
+  "level": 2,
+  "num": "4.1",
+  "text": "Work Approval 워크플로우 생성"
+ },
+ {
+  "id": "h35",
+  "level": 1,
+  "num": "5.",
+  "text": "워크플로우 현황 관리"
+ },
+ {
+  "id": "h36",
+  "level": 2,
+  "num": "5.1",
+  "text": "To-do List"
+ },
+ {
+  "id": "h37",
+  "level": 2,
+  "num": "5.2",
+  "text": "워크플로우 진행 알림(Receive E-mail)"
+ },
+ {
+  "id": "h38",
+  "level": 2,
+  "num": "5.3",
+  "text": "워크플로우 진행 현황 관리(Status 탭)"
+ },
+ {
+  "id": "h39",
+  "level": 1,
+  "num": "6.",
+  "text": "오류메시지 목록"
+ }
+]

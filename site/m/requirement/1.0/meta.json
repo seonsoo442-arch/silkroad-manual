@@ -1,0 +1,19 @@
+{
+ "id": "requirement",
+ "version": "1.0",
+ "note": "묶음 그림 처리 추가",
+ "sourceName": "05 Requirement.hwpx",
+ "sourceBytes": 30326554,
+ "sha256": "4a86ea30a338ca5a8c49230ce96e3ac97dead4e8b07211b95380976e1fe59821",
+ "convertedAt": "2026-11-12T22:43:52.217Z",
+ "stats": {
+  "paragraphs": 1771,
+  "headings": 140,
+  "tables": 230,
+  "images": 302,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 209825269,
+ "imageBytesAfter": 8690660
+}

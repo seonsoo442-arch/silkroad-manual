@@ -1,0 +1,105 @@
+// 로컬 관리 도구: npm run admin  ->  http://127.0.0.1:5174
+// 내 PC(127.0.0.1)에서만 열리며, 업로드한 HWPX를 변환해 site/ 에 새 버전으로 등록한다.
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { registerVersion, deleteVersion, readManifest, checkHwpx, sha256, suggestVersion, findManualByFile, slugOf, nameStem, MAX_BYTES } from './register.mjs';
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+const PORT = Number(process.argv[2]) || 5174;
+const SESSION = crypto.randomBytes(24).toString('hex'); // 이 실행에서만 유효한 토큰 (CSRF 방지)
+const uploads = new Map(); // token -> {buffer, name, sha, at}
+
+const send = (res, code, obj) => {
+  res.writeHead(code, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
+  res.end(JSON.stringify(obj));
+};
+function readBody(req, limit) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    let n = 0;
+    req.on('data', (c) => {
+      n += c.length;
+      if (n > limit) { reject(new Error('파일이 너무 큽니다 (300MB 초과).')); req.destroy(); return; }
+      chunks.push(c);
+    });
+    req.on('end', () => resolve(Buffer.concat(chunks)));
+    req.on('error', reject);
+  });
+}
+
+http
+  .createServer(async (req, res) => {
+    try {
+      // DNS 리바인딩 방지: Host 확인
+      if (!/^(127\.0\.0\.1|localhost):\d+$/.test(req.headers.host ?? '')) { res.writeHead(403); return res.end(); }
+      const url = new URL(req.url, 'http://x');
+
+      if (req.method === 'GET' && url.pathname === '/') {
+        const html = fs.readFileSync(path.join(here, 'admin.html'), 'utf8').replace('__SESSION__', SESSION);
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Frame-Options': 'DENY', 'X-Content-Type-Options': 'nosniff' });
+        return res.end(html);
+      }
+      if (!url.pathname.startsWith('/api/')) { res.writeHead(404); return res.end(); }
+      if (req.headers['x-session'] !== SESSION) return send(res, 403, { error: '세션이 만료되었습니다. 페이지를 새로고침하세요.' });
+
+      if (req.method === 'GET' && url.pathname === '/api/manuals') return send(res, 200, readManifest());
+
+      if (req.method === 'POST' && url.pathname === '/api/upload') {
+        const name = decodeURIComponent(req.headers['x-filename'] ?? 'upload.hwpx');
+        if (!/\.hwpx$/i.test(name)) return send(res, 400, { error: 'HWPX 파일(.hwpx)만 올릴 수 있습니다. HWP는 한글에서 HWPX로 저장 후 올려 주세요.' });
+        const buffer = await readBody(req, MAX_BYTES);
+        checkHwpx(buffer);
+        const hash = sha256(buffer);
+        const token = crypto.randomBytes(16).toString('hex');
+        for (const [k, v] of uploads) if (Date.now() - v.at > 30 * 60 * 1000) uploads.delete(k);
+        uploads.set(token, { buffer, name, sha: hash, at: Date.now() });
+        const dup = readManifest().manuals.flatMap((m) => m.versions.filter((v) => v.sha256 === hash).map((v) => ({ id: m.id, title: m.title, version: v.version })));
+        const manifest = readManifest();
+        const match = findManualByFile(manifest, name);
+        const guess = {
+          matchId: match?.id ?? null, // 파일명으로 인식한 기존 문서 (없으면 새 문서)
+          newId: slugOf(name),
+          newTitle: nameStem(name),
+          version: suggestVersion(match?.latest),
+        };
+        return send(res, 200, { token, name, bytes: buffer.length, sha256: hash, duplicates: dup, guess });
+      }
+
+      if (req.method === 'POST' && url.pathname === '/api/register') {
+        const body = JSON.parse((await readBody(req, 1e5)).toString('utf8'));
+        const up = uploads.get(body.token);
+        if (!up) return send(res, 400, { error: '업로드가 만료되었습니다. 파일을 다시 선택하세요.' });
+        const r = await registerVersion({
+          buffer: up.buffer,
+          sourceName: up.name,
+          id: String(body.id ?? ''),
+          title: String(body.title ?? '').slice(0, 100),
+          version: String(body.version ?? ''),
+          note: String(body.note ?? '').slice(0, 500),
+          overwrite: body.overwrite === true,
+        });
+        uploads.delete(body.token);
+        return send(res, 200, r);
+      }
+
+      if (req.method === 'POST' && url.pathname === '/api/delete') {
+        const body = JSON.parse((await readBody(req, 1e4)).toString('utf8'));
+        deleteVersion(String(body.id), String(body.version));
+        return send(res, 200, { ok: true });
+      }
+
+      if (req.method === 'GET' && url.pathname === '/api/suggest') {
+        const m = readManifest().manuals.find((x) => x.id === url.searchParams.get('id'));
+        return send(res, 200, { version: suggestVersion(m?.latest), title: m?.title ?? '' });
+      }
+      send(res, 404, { error: 'not found' });
+    } catch (e) {
+      // 내부 경로 등은 노출하지 않고 메시지만 전달
+      console.error('오류:', e.message);
+      send(res, 400, { error: e.message || '처리 중 오류가 발생했습니다.' });
+    }
+  })
+  .listen(PORT, '127.0.0.1', () => console.log(`관리 화면: http://127.0.0.1:${PORT}\n(열람 사이트 미리보기는 별도로 npm run serve)`));

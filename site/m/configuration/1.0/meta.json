@@ -1,0 +1,19 @@
+{
+ "id": "configuration",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "14 Configuration.hwpx",
+ "sourceBytes": 8990622,
+ "sha256": "b3db1decbc539e6e204a3e681f064074fff9a9226e8b4838ce1fb4bd693a567b",
+ "convertedAt": "2026-11-12T22:50:21.442Z",
+ "stats": {
+  "paragraphs": 730,
+  "headings": 91,
+  "tables": 104,
+  "images": 122,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 102392878,
+ "imageBytesAfter": 2849696
+}

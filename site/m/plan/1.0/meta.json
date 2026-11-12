@@ -1,0 +1,19 @@
+{
+ "id": "plan",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "04 Plan.hwpx",
+ "sourceBytes": 8938740,
+ "sha256": "a08034917cc6264dad1815dd4742db17e9a2de674676bd5f475923bb4922ced9",
+ "convertedAt": "2026-11-09T21:55:21.458Z",
+ "stats": {
+  "paragraphs": 572,
+  "headings": 63,
+  "tables": 115,
+  "images": 117,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 96807886,
+ "imageBytesAfter": 2554728
+}

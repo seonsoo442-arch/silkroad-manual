@@ -1,0 +1,19 @@
+{
+ "id": "global-storage",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "Global Storage.hwpx",
+ "sourceBytes": 928208,
+ "sha256": "5e3f3cd7ae80729b2ff0a3bc699e87fbe310a454b6bc411fb8b1357900fad41d",
+ "convertedAt": "2026-11-12T22:50:44.985Z",
+ "stats": {
+  "paragraphs": 326,
+  "headings": 21,
+  "tables": 40,
+  "images": 28,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 906272,
+ "imageBytesAfter": 734796
+}

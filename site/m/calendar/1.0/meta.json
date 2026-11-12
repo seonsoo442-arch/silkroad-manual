@@ -1,0 +1,19 @@
+{
+ "id": "calendar",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "Calendar.hwpx",
+ "sourceBytes": 968426,
+ "sha256": "0475b80ac8fcf2ec585632a182120811a58cc5d37f54cee31153432613f934d2",
+ "convertedAt": "2026-11-12T22:50:43.798Z",
+ "stats": {
+  "paragraphs": 272,
+  "headings": 30,
+  "tables": 24,
+  "images": 17,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 974419,
+ "imageBytesAfter": 770590
+}

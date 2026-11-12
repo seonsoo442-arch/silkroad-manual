@@ -1,0 +1,19 @@
+{
+ "id": "dashboard",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "03 Dashboard.hwpx",
+ "sourceBytes": 1801354,
+ "sha256": "63a7b4948fb46c931ed4aab7ef9cfdd26029ff13d631d27539862daff00cb4d2",
+ "convertedAt": "2026-11-09T21:55:05.124Z",
+ "stats": {
+  "paragraphs": 793,
+  "headings": 59,
+  "tables": 82,
+  "images": 129,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 29316860,
+ "imageBytesAfter": 661558
+}

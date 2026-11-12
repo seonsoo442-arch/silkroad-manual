@@ -1,0 +1,19 @@
+{
+ "id": "compliance",
+ "version": "1.0",
+ "note": "",
+ "sourceName": "15 Compliance.hwpx",
+ "sourceBytes": 766499,
+ "sha256": "78eae0ac09a867a6bf12a203797d9b6d8f3d8c5fa5c619bb2dfcb26ecfd691e3",
+ "convertedAt": "2026-11-12T22:50:21.939Z",
+ "stats": {
+  "paragraphs": 32,
+  "headings": 4,
+  "tables": 7,
+  "images": 7,
+  "missingImages": 0
+ },
+ "warnings": {},
+ "imageBytesBefore": 11140070,
+ "imageBytesAfter": 287338
+}
