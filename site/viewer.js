@@ -8,7 +8,8 @@ const fail = (msg) => { doc.innerHTML = ''; const d = document.createElement('di
 async function main() {
   const id = q.get('m');
   if (!id || !/^[a-z0-9-]+$/.test(id)) return fail('문서가 지정되지 않았습니다.');
-  const manifest = await fetch('data/manuals.json').then((r) => r.json());
+  // 배포 직후에도 새 버전이 보이도록 브라우저 캐시를 쓰지 않고 서버에 확인한다 (바뀌지 않았으면 304로 가볍게 응답)
+  const manifest = await fetch('data/manuals.json', { cache: 'no-cache' }).then((r) => r.json());
   const m = manifest.manuals.find((x) => x.id === id);
   if (!m) return fail('존재하지 않는 문서입니다.');
   const ver = m.versions.find((v) => v.version === q.get('v')) ?? m.versions.find((v) => v.version === m.latest);
@@ -46,8 +47,8 @@ async function main() {
   $('panel').hidden = false;
 
   const [html, items] = await Promise.all([
-    fetch(base + 'content.html').then((r) => { if (!r.ok) throw new Error(); return r.text(); }),
-    fetch(base + 'toc.json').then((r) => r.json()),
+    fetch(base + 'content.html', { cache: 'no-cache' }).then((r) => { if (!r.ok) throw new Error(); return r.text(); }),
+    fetch(base + 'toc.json', { cache: 'no-cache' }).then((r) => r.json()),
   ]);
   const tpl = document.createElement('template');
   tpl.innerHTML = html; // 변환기가 이스케이프해 생성한 허용 목록 태그만 포함

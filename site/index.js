@@ -1,6 +1,7 @@
 const list = document.getElementById('list');
 const fmt = (iso) => new Date(iso).toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' });
-fetch('data/manuals.json')
+// 배포 직후에도 새 목록이 보이도록 브라우저 캐시를 쓰지 않고 서버에 확인한다
+fetch('data/manuals.json', { cache: 'no-cache' })
   .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
   .then(({ manuals }) => {
     if (!manuals.length) { list.innerHTML = '<div class="empty">등록된 메뉴얼이 없습니다.</div>'; return; }
