@@ -91,6 +91,9 @@ small{color:var(--m)}
 .dtable .id{color:var(--m);font-size:12.5px;display:block}
 .dtable .acts{white-space:nowrap;text-align:right}
 .dtable .acts a{margin-right:8px;font-size:13.5px}
+.num{display:inline-block;min-width:24px;text-align:center;font-size:12px;font-weight:700;color:var(--m);background:var(--bg);border:1px solid var(--l);border-radius:6px;padding:0 5px;line-height:20px;font-variant-numeric:tabular-nums}
+.num.merged{color:var(--b);background:var(--bs);border-color:transparent}
+.dtable .no{width:56px}
 .tag{font-size:11.5px;font-weight:600;color:var(--b);background:var(--bs);border-radius:99px;padding:0 7px;margin-left:6px;vertical-align:1px}
 .vers td{background:var(--bg);padding:0 8px 0 24px}
 .vers table{width:100%;border-collapse:collapse;font-size:13.5px;margin:4px 0 8px}
@@ -198,10 +201,18 @@ const api=async(p,o={})=>{const r=await fetch(p,{...o,headers:{...(o.headers||{}
 const mb=(n)=>(n/1048576).toFixed(1)+'MB';
 const show=(el,cls,txt)=>{el.hidden=false;el.className='msg '+cls;el.textContent=txt;};
 
+// 번호: manuals.json 순서대로 01, 02 … (통합본은 번호 대신 "통합"). 열람 사이트(site/index.js)와 같은 규칙.
+let nums=new Map();
+const isMerged=(m)=>!!(m.versions.find((v)=>v.version===m.latest)??m.versions[0])?.mergedFrom;
+function numbering(){nums=new Map();let n=0;for(const m of manuals)nums.set(m.id,isMerged(m)?null:String(++n).padStart(2,'0'));}
+const label=(m)=>`${nums.get(m.id)??'통합'}. ${m.title}`;
+// 화면에 보이는 순서: 사이트처럼 통합본을 맨 위에, 나머지는 번호 순
+const ordered=()=>[...manuals.filter(isMerged),...manuals.filter((m)=>!isMerged(m))];
 async function refresh(){
   manuals=(await api('/api/manuals')).manuals;
+  numbering();
   const sel=$('manual');sel.textContent='';
-  for(const m of manuals){const o=document.createElement('option');o.value=m.id;o.textContent=`${m.title} (${m.id})`;sel.append(o);}
+  for(const m of ordered()){const o=document.createElement('option');o.value=m.id;o.textContent=`${label(m)} (${m.id})`;sel.append(o);}
   const n=document.createElement('option');n.value='__new';n.textContent='+ 새 문서 추가';sel.append(n);
   onManual();
   fillPick();
@@ -218,13 +229,15 @@ function renderDocs(){
   if(!manuals.length){list.innerHTML='<div class="empty">등록된 문서가 없습니다.</div>';return;}
   const k=$('dFilter').value.trim().toLowerCase();
   const t=document.createElement('table');t.className='dtable';
-  t.innerHTML='<thead><tr><th>문서</th><th>최신</th><th class="hide-sm">최근 등록</th><th class="hide-sm">원본</th><th></th></tr></thead>';
+  t.innerHTML='<thead><tr><th class="no">번호</th><th>문서</th><th>최신</th><th class="hide-sm">최근 등록</th><th class="hide-sm">원본</th><th></th></tr></thead>';
   const tb=document.createElement('tbody');let shown=0;
-  for(const m of manuals){
-    if(k&&!(m.title+' '+m.id).toLowerCase().includes(k))continue;
+  for(const m of ordered()){
+    const no=nums.get(m.id)??'통합';
+    if(k&&!(no+' '+m.title+' '+m.id).toLowerCase().includes(k))continue;
     shown++;
     const L=m.versions.find((v)=>v.version===m.latest)??m.versions[0];
     const tr=document.createElement('tr');tr.className='doc';
+    const noCell=td(null,'no');const nb=document.createElement('span');nb.className='num'+(nums.get(m.id)?'':' merged');nb.textContent=no;noCell.append(nb);tr.append(noCell);
     const name=td();const strong=document.createElement('strong');strong.textContent=m.title;name.append(strong);
     if(L.mergedFrom){const g=document.createElement('span');g.className='tag';g.textContent=`병합 ${L.mergedFrom.length}개`;name.append(g);}
     const idl=document.createElement('span');idl.className='id';idl.textContent=m.id;name.append(idl);
@@ -236,7 +249,7 @@ function renderDocs(){
     b.onclick=()=>{isOpen?opened.delete(m.id):opened.add(m.id);renderDocs();};
     acts.append(a,b);tr.append(acts);tb.append(tr);
     if(isOpen){
-      const vr=document.createElement('tr');vr.className='vers';const cell=td();cell.colSpan=5;
+      const vr=document.createElement('tr');vr.className='vers';const cell=td();cell.colSpan=6;
       const vt=document.createElement('table');vt.innerHTML='<thead><tr><th>버전</th><th>등록일시</th><th>변경 내용</th><th></th></tr></thead>';
       const vb=document.createElement('tbody');
       for(const v of m.versions){
@@ -329,7 +342,7 @@ let order=[]; // [{id, version}]
 const mById=(id)=>manuals.find((m)=>m.id===id);
 function fillPick(){
   const sel=$('mPick'),prev=sel.value;sel.textContent='';
-  for(const m of manuals){const o=document.createElement('option');o.value=m.id;o.textContent=`${m.title} (${m.id})`;sel.append(o);}
+  for(const m of ordered()){const o=document.createElement('option');o.value=m.id;o.textContent=`${label(m)} (${m.id})`;sel.append(o);}
   if(mById(prev))sel.value=prev;
   fillPickVer();
   const t=$('mTarget'),pt=t.value;t.textContent='';
@@ -373,7 +386,7 @@ function renderOrder(){
     const m=mById(it.id);
     const li=document.createElement('li');li.draggable=true;
     const g=document.createElement('span');g.className='grip';g.textContent='≡';g.title='끌어서 순서 변경';g.setAttribute('aria-hidden','true');
-    const t=document.createElement('span');t.className='t';t.textContent=m.title;
+    const t=document.createElement('span');t.className='t';const nb=document.createElement('span');nb.className='num'+(nums.get(m.id)?'':' merged');nb.textContent=nums.get(m.id)??'통합';t.append(nb,document.createTextNode(m.title));
     const vs=document.createElement('select');vs.setAttribute('aria-label',`${m.title} 버전`);verOptions(vs,m,it.version);vs.onchange=()=>{it.version=vs.value;};t.append(vs);
     const mk=(txt,label,fn,dis)=>{const b=document.createElement('button');b.type='button';b.className='btn sec';b.textContent=txt;b.setAttribute('aria-label',`${m.title} ${label}`);b.disabled=!!dis;b.onclick=fn;return b;};
     li.append(g,t,mk('▲','위로',()=>move(i,i-1),i===0),mk('▼','아래로',()=>move(i,i+1),i===order.length-1),mk('✕','빼기',()=>{order.splice(i,1);renderOrder();}));

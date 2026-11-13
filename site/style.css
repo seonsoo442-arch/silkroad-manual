@@ -46,8 +46,9 @@ button,select,input{font:inherit;color:inherit}
 .card{position:relative;display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px 12px;box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
 .card:hover{border-color:var(--brand)}
 .card:focus-within{border-color:var(--brand)}
-.card-head{display:flex;align-items:baseline;gap:8px;min-width:0}
-.num{flex:none;font-size:12px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.card-head{display:flex;align-items:center;gap:8px;min-width:0}
+.num{flex:none;min-width:24px;text-align:center;font-size:12px;font-weight:700;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:0 5px;line-height:20px;font-variant-numeric:tabular-nums}
+.num.merged{color:var(--brand);background:var(--brand-soft);border-color:transparent}
 .card-link{font-size:16px;font-weight:700;color:var(--text);text-decoration:none;overflow-wrap:anywhere}
 .card-link::after{content:"";position:absolute;inset:0;border-radius:var(--radius)} /* 카드 전체를 링크로 */
 .card-link:focus-visible{outline:none}

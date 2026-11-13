@@ -11,11 +11,21 @@ const GROUPS = [
   ['module', '기능별 메뉴얼', ''],
 ];
 
-function card(m, latest) {
-  const num = latest.sourceName?.match(/^(\d+)/)?.[1];
+// 번호: manuals.json 순서대로 01, 02 … (통합본은 번호 대신 "통합"). 관리 화면과 같은 규칙.
+function numbering(manuals) {
+  const map = new Map();
+  let n = 0;
+  for (const m of manuals) {
+    const latest = m.versions.find((v) => v.version === m.latest) ?? m.versions[0];
+    map.set(m.id, latest.mergedFrom ? null : String(++n).padStart(2, '0'));
+  }
+  return map;
+}
+
+function card(m, latest, num) {
   const c = el('div', 'card' + (latest.mergedFrom ? ' featured' : ''));
   const head = el('div', 'card-head');
-  if (num) head.append(el('span', 'num', num));
+  head.append(el('span', 'num' + (num ? '' : ' merged'), num ?? '통합'));
   const a = el('a', 'card-link', m.title);
   a.href = `viewer.html?m=${encodeURIComponent(m.id)}`;
   head.append(a);
@@ -35,7 +45,7 @@ function card(m, latest) {
   dl.title = `원본 다운로드: ${latest.sourceName}`;
   dl.setAttribute('aria-label', `${m.title} 원본(HWPX) 다운로드, ${mb(latest.sourceBytes)}`);
   c.append(dl);
-  c.dataset.key = (m.title + ' ' + m.id).toLowerCase();
+  c.dataset.key = ((num ?? '통합') + ' ' + m.title + ' ' + m.id).toLowerCase();
   return c;
 }
 
@@ -43,9 +53,10 @@ function render(manuals) {
   list.textContent = '';
   if (!manuals.length) { list.append(el('div', 'empty', '등록된 메뉴얼이 없습니다.')); return; }
   const by = {};
+  const nums = numbering(manuals);
   for (const m of manuals) {
     const latest = m.versions.find((v) => v.version === m.latest) ?? m.versions[0];
-    (by[groupOf(m, latest)] ??= []).push(card(m, latest));
+    (by[groupOf(m, latest)] ??= []).push(card(m, latest, nums.get(m.id)));
   }
   for (const [key, title, desc] of GROUPS) {
     if (!by[key]?.length) continue;
