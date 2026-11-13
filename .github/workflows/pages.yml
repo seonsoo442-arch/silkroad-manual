@@ -1,4 +1,6 @@
 # site/ 폴더를 GitHub Pages로 배포한다 (main 브랜치에 push하면 자동 실행)
+# 업로드(build)와 배포(deploy)를 별도 작업으로 나눈다. 한 작업 안에서 바로 배포하면
+# 큰 업로드 직후 배포 단계가 업로드 파일을 아직 찾지 못해 실패하는 경우가 있다.
 name: Deploy site to GitHub Pages
 on:
   push:
@@ -13,16 +15,20 @@ concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
