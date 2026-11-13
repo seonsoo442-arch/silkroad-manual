@@ -4,12 +4,11 @@ const fmt = (iso) => new Date(iso).toLocaleDateString('ko-KR', { year: 'numeric'
 const mb = (n) => (n >= 1048576 ? (n / 1048576).toFixed(1) + 'MB' : Math.max(1, Math.round(n / 1024)) + 'KB');
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
 
-// 분류: 병합 문서 → 통합본, "User Guide" → 사용자 가이드, 나머지 → 기능별 메뉴얼
-const groupOf = (m, latest) => (latest.mergedFrom ? 'merged' : /^user guide/i.test(m.title) ? 'guide' : 'module');
+// 분류: 병합 문서 → 통합본, 나머지(사용자 가이드 포함) → 기능별 메뉴얼
+const groupOf = (m, latest) => (latest.mergedFrom ? 'merged' : 'module');
 const GROUPS = [
   ['merged', '통합본', '여러 메뉴얼을 하나로 합친 문서입니다.'],
   ['module', '기능별 메뉴얼', ''],
-  ['guide', '사용자 가이드', ''],
 ];
 
 function card(m, latest) {
