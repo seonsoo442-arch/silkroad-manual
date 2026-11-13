@@ -6,7 +6,8 @@
   "scripts": {
     "convert": "node tools/convert.mjs",
     "serve": "node tools/serve.mjs",
-    "admin": "node tools/admin.mjs"
+    "admin": "node tools/admin.mjs",
+    "release-large": "node tools/release-large.mjs"
   },
   "dependencies": {
     "bmp-js": "^0.1.0",

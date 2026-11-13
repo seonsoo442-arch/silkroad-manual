@@ -25,7 +25,8 @@ async function main() {
   sel.onchange = () => { location.search = `?m=${id}&v=${encodeURIComponent(sel.value)}`; };
   $('vinfo').textContent = `${fmt(ver.date)} · ${ver.note || '변경 내용 없음'}`;
   const base = `m/${id}/${ver.version}/`;
-  const dl = $('dlSrc'); dl.href = base + 'source.hwpx'; dl.setAttribute('download', ver.sourceName);
+  // 100MB가 넘는 원본은 GitHub 릴리스에 있으므로 그 주소를 쓴다
+  const dl = $('dlSrc'); dl.href = ver.downloadUrl || base + 'source.hwpx'; dl.setAttribute('download', ver.sourceName);
 
   const hist = $('history');
   const tbl = document.createElement('table');

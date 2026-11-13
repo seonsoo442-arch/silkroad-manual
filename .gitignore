@@ -12,3 +12,5 @@ tools/*_log.txt
 tools/*_out.txt
 tools/t.bat
 tools/t2.bat
+# 100MB 초과 원본: GitHub 릴리스에 첨부 (npm run release-large)
+/site/m/merged/1.0/source.hwpx

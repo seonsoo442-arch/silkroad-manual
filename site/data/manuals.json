@@ -530,6 +530,168 @@
     }
    ],
    "latest": "1.0"
+  },
+  {
+   "id": "merged",
+   "title": "실크로드 사용자 메뉴얼 통합",
+   "nameKey": "실크로드 사용자 메뉴얼 통합",
+   "versions": [
+    {
+     "version": "1.0",
+     "date": "2026-11-13T00:03:38.897Z",
+     "note": "병합: 프로젝트 (Project) v1.0 + Login v1.0 + Dashboard v1.0 + Plan v1.0 + Requirement v1.0 + sDOCS v1.0 + oDOCS v1.0 + Traceability v1.0 + Task v1.0 + Issue v1.0 + Repository v1.0 + StaticAnalysis_UnitTest v1.0 + TestCase v1.0 + Configuration v1.0 + Compliance v1.0 + PeerReview v1.0 + Source Repository v1.0 + Kanban Board v1.0 + Silo v1.0 + WORKFLOW v1.0 + Project Setting v1.0 + Admin Setting v1.0 + Calendar v1.0 + Global Storage v1.0 + Reminder v1.0 + User Guide - Board v1.0 + User Guide - Messenger ",
+     "sha256": "065bf5f4a24ffbcd25107cc4a5cb8ecaab08782bd717bd3e1a7203f465baebf4",
+     "sourceName": "실크로드 사용자 메뉴얼 통합.hwpx",
+     "sourceBytes": 137589102,
+     "headings": 1210,
+     "tables": 1711,
+     "images": 2166,
+     "mergedFrom": [
+      {
+       "id": "project",
+       "version": "1.0",
+       "title": "프로젝트 (Project)"
+      },
+      {
+       "id": "login",
+       "version": "1.0",
+       "title": "Login"
+      },
+      {
+       "id": "dashboard",
+       "version": "1.0",
+       "title": "Dashboard"
+      },
+      {
+       "id": "plan",
+       "version": "1.0",
+       "title": "Plan"
+      },
+      {
+       "id": "requirement",
+       "version": "1.0",
+       "title": "Requirement"
+      },
+      {
+       "id": "sdocs",
+       "version": "1.0",
+       "title": "sDOCS"
+      },
+      {
+       "id": "odocs",
+       "version": "1.0",
+       "title": "oDOCS"
+      },
+      {
+       "id": "traceability",
+       "version": "1.0",
+       "title": "Traceability"
+      },
+      {
+       "id": "task",
+       "version": "1.0",
+       "title": "Task"
+      },
+      {
+       "id": "issue",
+       "version": "1.0",
+       "title": "Issue"
+      },
+      {
+       "id": "repository",
+       "version": "1.0",
+       "title": "Repository"
+      },
+      {
+       "id": "staticanalysis-unittest",
+       "version": "1.0",
+       "title": "StaticAnalysis_UnitTest"
+      },
+      {
+       "id": "testcase",
+       "version": "1.0",
+       "title": "TestCase"
+      },
+      {
+       "id": "configuration",
+       "version": "1.0",
+       "title": "Configuration"
+      },
+      {
+       "id": "compliance",
+       "version": "1.0",
+       "title": "Compliance"
+      },
+      {
+       "id": "peerreview",
+       "version": "1.0",
+       "title": "PeerReview"
+      },
+      {
+       "id": "source-repository",
+       "version": "1.0",
+       "title": "Source Repository"
+      },
+      {
+       "id": "kanban-board",
+       "version": "1.0",
+       "title": "Kanban Board"
+      },
+      {
+       "id": "silo",
+       "version": "1.0",
+       "title": "Silo"
+      },
+      {
+       "id": "workflow",
+       "version": "1.0",
+       "title": "WORKFLOW"
+      },
+      {
+       "id": "project-setting",
+       "version": "1.0",
+       "title": "Project Setting"
+      },
+      {
+       "id": "admin-setting",
+       "version": "1.0",
+       "title": "Admin Setting"
+      },
+      {
+       "id": "calendar",
+       "version": "1.0",
+       "title": "Calendar"
+      },
+      {
+       "id": "global-storage",
+       "version": "1.0",
+       "title": "Global Storage"
+      },
+      {
+       "id": "reminder",
+       "version": "1.0",
+       "title": "Reminder"
+      },
+      {
+       "id": "silkroad-user-guide-board",
+       "version": "1.0",
+       "title": "User Guide - Board"
+      },
+      {
+       "id": "silkroad-user-guide-messenger",
+       "version": "1.0",
+       "title": "User Guide - Messenger"
+      },
+      {
+       "id": "silkroad-user-guide-project",
+       "version": "1.0",
+       "title": "User Guide - Project"
+      }
+     ],
+     "downloadUrl": "https://github.com/seonsoo442-arch/silkroad-manual/releases/download/file-merged-1.0/merged-v1.0.hwpx"
+    }
+   ],
+   "latest": "1.0"
   }
  ]
 }
