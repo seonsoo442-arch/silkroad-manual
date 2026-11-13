@@ -8,10 +8,18 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="topbar"><a class="brand" href="./">SILKROAD 메뉴얼</a></header>
+<header class="topbar"><a class="brand" href="./"><span class="logo" aria-hidden="true">S</span>SILKROAD 메뉴얼</a></header>
 <div class="wrap">
-  <h1>메뉴얼 목록</h1>
-  <p class="sub">문서를 선택하면 웹에서 열람하고 버전 이력을 확인할 수 있습니다.</p>
+  <div class="hero">
+    <div>
+      <h1>사용자 메뉴얼</h1>
+      <p class="sub" id="summary">문서를 선택하면 웹에서 바로 열람할 수 있습니다.</p>
+    </div>
+    <label class="search">
+      <span class="sr">메뉴얼 검색</span>
+      <input type="search" id="q" placeholder="메뉴얼 이름으로 찾기" autocomplete="off">
+    </label>
+  </div>
   <div id="list"><div class="empty">불러오는 중…</div></div>
 </div>
 <script src="index.js"></script>

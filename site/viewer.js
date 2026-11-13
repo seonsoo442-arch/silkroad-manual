@@ -2,8 +2,9 @@ const q = new URLSearchParams(location.search);
 const $ = (id) => document.getElementById(id);
 const doc = $('doc'), toc = $('toc'), side = $('side');
 const fmt = (iso) => new Date(iso).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
-const mb = (n) => (n / 1048576).toFixed(1) + 'MB';
+const mb = (n) => (n >= 1048576 ? (n / 1048576).toFixed(1) + 'MB' : Math.max(1, Math.round(n / 1024)) + 'KB');
 const fail = (msg) => { doc.innerHTML = ''; const d = document.createElement('div'); d.className = 'err'; d.textContent = msg; doc.append(d); };
+const DEEP = 2; // 목차가 길면 이 단계까지만 기본 표시
 
 async function main() {
   const id = q.get('m');
@@ -23,11 +24,23 @@ async function main() {
     if (v.version === ver.version) o.selected = true;
     sel.append(o);
   }
+  sel.disabled = m.versions.length < 2;
   sel.onchange = () => { location.search = `?m=${id}&v=${encodeURIComponent(sel.value)}`; };
-  $('vinfo').textContent = `${fmt(ver.date)} · ${ver.note || '변경 내용 없음'}`;
+  $('vinfo').textContent = `${fmt(ver.date)} 등록`;
+  // 병합 문서는 변경 내용 대신 포함 문서 목록을 접어서 보여 준다
+  if (ver.mergedFrom?.length) {
+    $('partsSum').textContent = `포함된 메뉴얼 ${ver.mergedFrom.length}개`;
+    for (const p of ver.mergedFrom) { const li = document.createElement('li'); li.textContent = `${p.title} v${p.version}`; $('partsList').append(li); }
+    $('parts').hidden = false;
+  } else if (ver.note) {
+    $('vnote').textContent = ver.note; $('vnote').hidden = false;
+  }
   const base = `m/${id}/${ver.version}/`;
   // 100MB가 넘는 원본은 GitHub 릴리스에 있으므로 그 주소를 쓴다
   const dl = $('dlSrc'); dl.href = ver.downloadUrl || base + 'source.hwpx'; dl.setAttribute('download', ver.sourceName);
+  dl.title = `원본 다운로드: ${ver.sourceName} (${mb(ver.sourceBytes)})`;
+  dl.setAttribute('aria-label', `원본(HWPX) 다운로드, ${mb(ver.sourceBytes)}`);
+  dl.hidden = false;
 
   const hist = $('history');
   const tbl = document.createElement('table');
@@ -35,12 +48,15 @@ async function main() {
   const tb = document.createElement('tbody');
   for (const v of m.versions) {
     const tr = document.createElement('tr');
-    for (const t of [`v${v.version}${v.version === m.latest ? ' (최신)' : ''}`, fmt(v.date), v.note || '-', mb(v.sourceBytes)]) {
+    if (v.version === ver.version) tr.className = 'cur';
+    const note = v.mergedFrom ? `병합 (${v.mergedFrom.length}개 메뉴얼)` : v.note || '-';
+    for (const t of [`v${v.version}${v.version === m.latest ? ' (최신)' : ''}`, fmt(v.date), note, mb(v.sourceBytes)]) {
       const td = document.createElement('td'); td.textContent = t; tr.append(td);
     }
     const td = document.createElement('td');
-    const a = document.createElement('a'); a.href = `?m=${id}&v=${encodeURIComponent(v.version)}`; a.textContent = v.version === ver.version ? '보는 중' : '열기';
-    td.append(a); tr.append(td); tb.append(tr);
+    if (v.version === ver.version) td.textContent = '보는 중';
+    else { const a = document.createElement('a'); a.href = `?m=${id}&v=${encodeURIComponent(v.version)}`; a.textContent = '열기'; td.append(a); }
+    tr.append(td); tb.append(tr);
   }
   tbl.append(tb); hist.append(tbl);
   $('histBtn').onclick = () => { hist.hidden = !hist.hidden; $('histBtn').setAttribute('aria-expanded', String(!hist.hidden)); };
@@ -57,27 +73,51 @@ async function main() {
 
   for (const it of items) {
     const a = document.createElement('a');
-    a.href = '#' + it.id; a.className = 'l' + it.level; a.dataset.id = it.id;
+    a.href = '#' + it.id; a.className = 'l' + it.level; a.dataset.id = it.id; a.dataset.level = it.level;
     const n = document.createElement('span'); n.className = 'n'; n.textContent = it.num;
     a.append(n, document.createTextNode(it.text)); toc.append(a);
   }
-  $('tocFilter').oninput = (e) => {
-    const k = e.target.value.trim().toLowerCase();
-    for (const a of toc.children) a.hidden = !!k && !a.textContent.toLowerCase().includes(k);
+
+  // 목차가 길면 큰 항목만 보여 주고, 체크하면 세부 항목까지 펼친다. 검색 중에는 모든 단계에서 찾는다.
+  const long = items.length > 120;
+  $('depthWrap').hidden = !long;
+  $('depthAll').checked = !long;
+  const applyToc = () => {
+    const k = $('tocFilter').value.trim().toLowerCase();
+    const all = $('depthAll').checked;
+    for (const a of toc.children) a.hidden = k ? !a.textContent.toLowerCase().includes(k) : !all && +a.dataset.level > DEEP;
   };
-  toc.onclick = () => side.classList.remove('open');
+  $('tocFilter').oninput = applyToc;
+  $('depthAll').onchange = applyToc;
+  applyToc();
+  toc.onclick = (e) => { if (e.target.closest('a')) closeSide(); };
 
   const heads = [...doc.querySelectorAll('h1,h2,h3,h4,h5,h6')];
   const links = new Map([...toc.children].map((a) => [a.dataset.id, a]));
   const io = new IntersectionObserver((es) => {
     for (const e of es) if (e.isIntersecting) {
       toc.querySelector('.active')?.classList.remove('active');
-      const a = links.get(e.target.id); a?.classList.add('active');
+      // 접힌 세부 항목이면 위쪽의 보이는 상위 항목을 표시
+      let a = links.get(e.target.id);
+      while (a && a.hidden) a = a.previousElementSibling;
+      a?.classList.add('active');
       a?.scrollIntoView({ block: 'nearest' });
     }
-  }, { rootMargin: '-60px 0px -75% 0px' });
+  }, { rootMargin: '-70px 0px -75% 0px' });
   heads.forEach((h) => io.observe(h));
   if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
 }
-$('menuBtn').onclick = () => { const o = side.classList.toggle('open'); $('menuBtn').setAttribute('aria-expanded', String(o)); };
-main().catch(() => fail('문서를 불러오지 못했습니다.'));
+
+// 모바일 목차 열기/닫기
+const openSide = () => { side.classList.add('open'); $('scrim').hidden = false; $('menuBtn').setAttribute('aria-expanded', 'true'); };
+const closeSide = () => { side.classList.remove('open'); $('scrim').hidden = true; $('menuBtn').setAttribute('aria-expanded', 'false'); };
+$('menuBtn').onclick = () => (side.classList.contains('open') ? closeSide() : openSide());
+$('scrim').onclick = closeSide;
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSide(); });
+
+// 맨 위로
+const toTop = $('toTop');
+addEventListener('scroll', () => { toTop.hidden = scrollY < 600; }, { passive: true });
+toTop.onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
+
+main().catch(() => fail('문서를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.'));

@@ -7,30 +7,39 @@
 <title>메뉴얼 보기</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="viewer">
 <header class="topbar">
-  <button class="btn menu-btn" id="menuBtn" aria-label="목차 열기" aria-expanded="false">☰ 목차</button>
-  <a class="brand" href="./">SILKROAD 메뉴얼</a>
+  <button class="btn icon menu-btn" id="menuBtn" aria-label="목차 열기" aria-expanded="false" aria-controls="side">☰<span class="menu-txt">목차</span></button>
+  <a class="brand" href="./" title="메뉴얼 목록으로"><span class="logo" aria-hidden="true">S</span><span class="brand-txt">SILKROAD 메뉴얼</span></a>
+  <span class="crumb" aria-hidden="true">/</span>
   <span class="title" id="docTitle"></span>
+  <a class="btn primary" id="dlSrc" download hidden>⬇<span class="dl-txt"> 원본 HWPX</span></a>
 </header>
 <div class="layout">
   <nav class="side" id="side" aria-label="목차">
-    <input type="search" id="tocFilter" placeholder="목차 검색" aria-label="목차 검색">
+    <div class="side-tools">
+      <input type="search" id="tocFilter" placeholder="목차 검색" aria-label="목차 검색" autocomplete="off">
+      <label class="toggle" id="depthWrap" hidden><input type="checkbox" id="depthAll"> 세부 항목까지 보기</label>
+    </div>
     <div class="toc" id="toc"></div>
   </nav>
+  <div class="scrim" id="scrim" hidden></div>
   <main>
     <section class="panel" id="panel" hidden>
-      <label for="verSel">버전</label>
-      <select id="verSel"></select>
-      <span class="vinfo" id="vinfo"></span>
-      <span class="grow"></span>
-      <button class="btn" id="histBtn" aria-expanded="false">버전 이력</button>
-      <a class="btn" id="dlSrc" download>원본(HWPX) 다운로드</a>
+      <div class="panel-row">
+        <label class="ver"><span>버전</span><select id="verSel"></select></label>
+        <span class="vinfo" id="vinfo"></span>
+        <span class="grow"></span>
+        <button class="btn" id="histBtn" aria-expanded="false" aria-controls="history">버전 이력</button>
+      </div>
+      <p class="vnote" id="vnote" hidden></p>
+      <details class="parts" id="parts" hidden><summary id="partsSum"></summary><ol id="partsList"></ol></details>
     </section>
     <section class="history" id="history" hidden></section>
     <article class="doc" id="doc"><div class="empty">불러오는 중…</div></article>
   </main>
 </div>
+<button class="totop" id="toTop" aria-label="맨 위로" hidden>↑</button>
 <script src="viewer.js"></script>
 </body>
 </html>
